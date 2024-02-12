@@ -2,85 +2,270 @@
 <html lang="es">
     <head>
         <title>Proyecto Final IAW</title>
-        <link rel="icon" type="image/x-icon" href="imagenes/x-icon.png">
+        <link rel="icon" type="image/x-icon" href="img/x-icon.png">
         <meta charset="utf-8">
         <meta name="author" content="Abel Gijón Cordero">
         <meta name="description" content="Proyecto Final Implantación de Aplicaciones Web">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="estilo/bootstrap.css">
+        <script src="estilo/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" href="estilo/estilo.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Brand</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav w-100">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Home
-                                <span class="visually-hidden">(cat.actual)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Ofertas</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas las categorías</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Teclados</a>
-                                <a class="dropdown-item" href="#">Ratones</a>
-                                <a class="dropdown-item" href="#">Auriculares</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Outlet</a>
+        <!-- ======================================= -->
+        <!-- ============== Cabecera =============== -->
+        <!-- ======================================= -->
+        <header>
+            <!-- BARRA DE NAVEGACIÓN -->
+            <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html"><img src="img/x-icon.png"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor02">
+                        <ul class="navbar-nav w-100">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home
+                                    <span class="visually-hidden">(cat.actual)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Novedades</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas las categorías</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Teclados</a>
+                                    <a class="dropdown-item" href="#">Ratones</a>
+                                    <a class="dropdown-item" href="#">Auriculares</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Outlet</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-sm-2" type="search" placeholder="Buscar">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                        <a class="btn btn-secondary my-2 my-sm-0 ms-3" href="html/login.html" type="submit">Login</a>
+                        <div class="cart-menu">
+                            <a href="html/carrito.html"><img src="img/carrito.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- ======================================= -->
+        <!-- ========= CONTENIDO PRINCIPAL ========= -->
+        <!-- ======================================= -->
+        <main>
+            <div class="container-fluid p-5">
+                <div class="row">
+                    <!-- CARRUSEL NOVEDADES -->
+                    <div class="col-md-6">
+                        <div id="carrusel-novedades" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carrusel-novedades" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carrusel-novedades" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carrusel-novedades" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-sm-2" type="search" placeholder="Buscar">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
-                    <div class="cart-menu" style="margin-left: 10px;">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="4000">
+                                    <img src="img/360p.png" class="d-block w-100" alt="360p">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Primer arcículo de novedades</h5>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam a laboriosam, in quis, nulla saepe id animi dicta omnis porro ipsam accusantium hic pariatur doloremque deserunt suscipit laborum repudiandae neque!</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="4000">
+                                    <img src="img/480p.png" class="d-block w-100" alt="480p">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Segundo artículo de novedades</h5>
+                                        <p>Breve descripción del segundo artículo de novedades.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="4000">
+                                    <img src="img/720p.png" class="d-block w-100" alt="720p">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Tercer artículo de novedades</h5>
+                                        <p>Breve descripción del tercer artículo de novedades.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-novedades" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carrusel-novedades" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>                 
+                    </div>
+                    <!-- CARRUSEL OFERTAS -->
+                    <div class="col-md-6">
+                        <div id="carrusel-ofertas" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carrusel-ofertas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carrusel-ofertas" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carrusel-ofertas" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="4000">
+                                    <img src="img/360p.png" class="d-block w-100" alt="360p">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Primer arcículo de ofertas</h5>
+                                        <p>Breve descripción del primer artículo de ofertas.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="4000">
+                                    <img src="img/480p.png" class="d-block w-100" alt="480p">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Segundo artículo de ofertas</h5>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet praesentium ea iure harum, quod voluptatem modi blanditiis tenetur ut alias laborum accusamus totam, sequi excepturi amet tempora enim cumque quae!</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="4000">
+                                    <img src="img/720p.png" class="d-block w-100" alt="720p">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Tercer artículo de ofertas</h5>
+                                        <p>Breve descripción del tercer artículo de ofertas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-ofertas" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carrusel-ofertas" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container-fluid">
-                <div class="row">
+            <!-- ARTÍCULOS -->
+            <div class="container-fluid ps-5 pe-5">
+                <!-- ROW 1 -->
+                <div class="row mb-5">
                     <div class="col">
-                        <h1>Novedades<span class="badge badge-secondary">New</span></h1>
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/360p.png" class="card-img-top" alt="360p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 1</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ratione adipisci atque id officiis excepturi ea quam? Obcaecati quasi eum natus ipsum excepturi sint, corporis, autem, blanditiis architecto incidunt corrupti.</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">carrusel ofertas Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum omnis debitis numquam sequi molestiae ab sit quaerat, tenetur beatae ducimus rerum similique mollitia iure eveniet commodi consequuntur laboriosam a tempore.</div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/480p.png" class="card-img-top" alt="480p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 2</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Descripción del artículo dos.</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/720p.png" class="card-img-top" alt="720p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 3</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Descripción del artículo tres.</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/1080p.png" class="card-img-top" alt="1080p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 4</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Descripción del artículo cuatro.</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    SEPARADOR
-                </div>
-                <div class="row">
-                    <div class="col">producto 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum debitis maxime rem tempora tempore, autem aliquam error voluptate, non blanditiis commodi officia eos, quos eveniet repellendus perspiciatis iusto? Quisquam, deleniti.</div>
-                    <div class="col">producto 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis officiis libero officia harum, reprehenderit totam voluptatem recusandae quidem dolor sapiente architecto numquam voluptatum quod eligendi? Illo ad asperiores eveniet a?</div>
-                    <div class="col">producto 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quo incidunt, earum eaque nesciunt enim, velit repellat, quidem dolore nulla magnam non optio neque architecto numquam commodi! Nihil, sint quae?</div>
-                    <div class="col">producto 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aut cum sapiente, eligendi placeat asperiores delectus dolores magnam, deleniti tenetur beatae veniam. Aliquam incidunt in id dolorum quisquam, atque eaque.</div>
-                </div>
-                <div class="row">
-                    <div class="col">producto 5</div>
-                    <div class="col">producto 6</div>
-                    <div class="col">producto 7</div>
-                    <div class="col">producto 8</div>
-                </div>
-                <div class="row">
-                    <div class="col">producto 9</div>
-                    <div class="col">producto 10</div>
-                    <div class="col">producto 11</div>
-                    <div class="col">producto 12</div>
+                <!-- ROW 2 -->
+                <div class="row mb-5">
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/360p.png" class="card-img-top" alt="360p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 1</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Descripción del artículo uno.</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/480p.png" class="card-img-top" alt="480p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 2</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Descripción del artículo dos.</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/720p.png" class="card-img-top" alt="720p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 3</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, dolore accusamus? Rem tempora unde omnis, labore laboriosam obcaecati voluptatibus, voluptatem facilis dolorem similique, odio ex reiciendis esse aut ut ea!</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/1080p.png" class="card-img-top" alt="1080p">
+                            <div class="card-body">
+                                <h5 class="card-title">Artículo 4</h5>
+                                <h6 class="card-title text-end">Precio</h6>
+                                <p class="card-text">Descripción del artículo cuatro.</p>
+                                <a href="#" class="btn btn-dark">Añadir al carrito</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <nav aria-label="Page navigation example" data-bs-theme="dark">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previa">
+                        <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Siguiente">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav> 
+        </main>
+        <!-- ======================================= -->
+        <!-- ============ PIE DE PÁGINA ============ -->
+        <!-- ======================================= -->
+        <footer>
+            
+        </footer>
     </body>
 </html>

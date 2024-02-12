@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Proyecto Final IAW</title>
+        <link rel="icon" type="image/x-icon" href="../img/x-icon.png">
+        <meta charset="utf-8">
+        <meta name="author" content="Abel Gijón Cordero">
+        <meta name="description" content="Proyecto Final Implantación de Aplicaciones Web">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../estilo/bootstrap.css">
+        <script src="../estilo/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" href="../estilo/estilo.css">
+    </head>
+    <body>
+        <!-- ======================================= -->
+        <!-- ============== Cabecera =============== -->
+        <!-- ======================================= -->
+        <header>
+        <!-- BARRA DE NAVEGACIÓN -->
+            <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../img/x-icon.png"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor02">
+                        <ul class="navbar-nav w-100">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home
+                                    <span class="visually-hidden">(cat.actual)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Novedades</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas las categorías</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Teclados</a>
+                                    <a class="dropdown-item" href="#">Ratones</a>
+                                    <a class="dropdown-item" href="#">Auriculares</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Outlet</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-sm-2" type="search" placeholder="Buscar">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                        <a class="btn btn-secondary my-2 my-sm-0 ms-3" href="login.html" type="submit">Login</a>
+                        <div class="cart-menu">
+                            <a href="#"><img src="../img/carrito.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- ======================================= -->
+        <!-- ========= CONTENIDO PRINCIPAL ========= -->
+        <!-- ======================================= -->
+        <main>
+            <div class="container-fluid p-5">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col sm-3">Imágen</th>
+                            <th scope="col sm-3">Artículo</th>
+                            <th scope="col sm-3">Precio</th>
+                            <th scope="col sm-3">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img class="td-img" src="../img/360p.png" class="card-img-top" alt="360p"></td>
+                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nobis laudantium odio aliquid distinctio illo ratione quia? Blanditiis reprehenderit laboriosam optio ratione consequuntur? Quibusdam, quas suscipit pariatur velit facere omnis!</td>
+                            <td>Precio</td>
+                            <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Eliminar</button></td>
+                        </tr>
+                        <tr>
+                            <td><img class="td-img" src="../img/720p.png" class="card-img-top" alt="720p"></td>
+                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nobis laudantium odio aliquid distinctio illo ratione quia? Blanditiis reprehenderit laboriosam optio ratione consequuntur? Quibusdam, quas suscipit pariatur velit facere omnis!</td>
+                            <td>Precio</td>
+                            <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Eliminar</button></td>
+                        </tr>
+                        <tr>
+                            <td><img class="td-img" src="../img/1080p.png" class="card-img-top" alt="1080p"></td>
+                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nobis laudantium odio aliquid distinctio illo ratione quia? Blanditiis reprehenderit laboriosam optio ratione consequuntur? Quibusdam, quas suscipit pariatur velit facere omnis!</td>
+                            <td>Precio</td>
+                            <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" style="text-align: right;">Total:</td>
+                            <td>precio total</td>
+                            <td><button class="btn btn-secondary my-2 my-sm-0" type="submit">Tramitar</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row d-flex justify-content-center align-items-center mb-5">
+                    <div class="col sm-3">
+                        <img src="../img/360p.png" class="card-img-top" alt="360p">           
+                    </div>
+                    <div class="col sm-5">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, aliquid reprehenderit nesciunt excepturi aut molestiae vel minima laboriosam iste dolorum nobis labore esse, neque repellendus odit rem maiores voluptas accusamus!
+                    </div>
+                    <div class="col sm-1">
+                        precio del artículo
+                    </div>
+                    <div class="col sm-1">
+                        botón para eliminar
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center align-items-center mb-5">
+                    <div class="col sm-3">
+                        <img src="../img/720p.png" class="card-img-top" alt="720p">           
+                    </div>
+                    <div class="col sm-5">
+                        descripción del artículo
+                    </div>
+                    <div class="col sm-2">
+                        precio del artículo
+                    </div>
+                    <div class="col sm-2">
+                        botón para eliminar
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center align-items-center mb-5">
+                    <div class="col sm-3">
+                        <img src="../img/1080p.png" class="card-img-top" alt="1080p">           
+                    </div>
+                    <div class="col sm-5">
+                        descripción del artículo
+                    </div>
+                    <div class="col sm-2">
+                        precio del artículo
+                    </div>
+                    <div class="col sm-2">
+                        botón para eliminar
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- ======================================= -->
+        <!-- ============ PIE DE PÁGINA ============ -->
+        <!-- ======================================= -->
+        <footer>
+
+        </footer>
+    </body>
+</html>

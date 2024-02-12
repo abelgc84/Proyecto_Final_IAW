@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Proyecto Final IAW</title>
+        <link rel="icon" type="image/x-icon" href="../img/x-icon.png">
+        <meta charset="utf-8">
+        <meta name="author" content="Abel Gijón Cordero">
+        <meta name="description" content="Proyecto Final Implantación de Aplicaciones Web">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../estilo/bootstrap.css">
+        <script src="../estilo/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" href="../estilo/estilo.css">
+    </head>
+    <body>
+        <!-- ======================================= -->
+        <!-- ============== Cabecera =============== -->
+        <!-- ======================================= -->
+        <header>
+        <!-- BARRA DE NAVEGACIÓN  -->
+            <nav class="navbar navbar-expand-sm bg-dark" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html"><img src="../img/x-icon.png"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor02">
+                        <ul class="navbar-nav w-100">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home
+                                    <span class="visually-hidden">(cat.actual)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Novedades</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas las categorías</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Teclados</a>
+                                    <a class="dropdown-item" href="#">Ratones</a>
+                                    <a class="dropdown-item" href="#">Auriculares</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Outlet</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-sm-2" type="search" placeholder="Buscar">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                        <a class="btn btn-secondary my-2 my-sm-0 ms-3" href="login.html" type="submit">Login</a>
+                        <div class="cart-menu">
+                            <a href="carrito.html"><img src="../img/carrito.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- ======================================= -->
+        <!-- ========= CONTENIDO PRINCIPAL ========= -->
+        <!-- ======================================= -->
+        <main>
+            <div class="container-fluid p-5">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col">
+                        <div class="card-login mx-auto">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Login</h5>
+                                    <div class="form-group">
+                                        <label class="form-label mt-4">Email</label>
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Email</label>
+                                        </div>
+                                        <label class="form-label mt-4">Contraseña</label>
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
+                                            <label for="floatingPassword">Contraseña</label>
+                                        </div>
+                                    </div>
+                                    <div class="row p-2">
+                                        <a class="btn btn-dark mt-2" href="#" type="submit">Entrar</a>
+                                        <a class="btn btn-dark mt-2" href="#" type="submit">Unirse</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- ======================================= -->
+        <!-- ============ PIE DE PÁGINA ============ -->
+        <!-- ======================================= -->
+        <footer>
+
+        </footer>
+    </body>
+</html>
