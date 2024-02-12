@@ -51,7 +51,7 @@
                         </form>
                         <a class="btn btn-secondary my-2 my-sm-0 ms-3" href="login.html" type="submit">Login</a>
                         <div class="cart-menu">
-                            <a href="#"><img src="../img/carrito.png"></a>
+                            <a href="carrito.html"><img src="../img/carrito.png"></a>
                         </div>
                     </div>
                 </div>
@@ -62,78 +62,60 @@
         <!-- ======================================= -->
         <main>
             <div class="container-fluid p-5">
-                <div class="card">
-                    <div class="row">
-                        <!-- Cabecera -->
-                        <div class="col-md-8 cart">
-                            <div class="row">
-                                <div class="col"><h4 class="ms-5"><b>Carrito</b></h4></div>
-                                <div class="col align-self-center text-right text-muted">3 Artículos</div>
+                <h1>Agregar nuevo producto</h1>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <form action="#">
+                            <div class="row mb-3">
+                                <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="imagen" placeholder="URL de la imagen">
+                                </div>
                             </div>
-                        </div>
-                        <!-- Artículos -->
-                        <div class="row border-top border-bottom">
-                            <div class="row main align-items-center">
-                                <div class="col-2"><img class="img-fluid" src="../img/1080p.png" alt="1080p"></div>
-                                <div class="col-6">
-                                    <div class="row text-muted">Artículo</div>
-                                    <div class="row">Descripción.</div>
+                            <div class="row mb-3">
+                                <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="descripcion" placeholder="Descripción del producto">
                                 </div>
-                                <div class="col">100€</div>
-                                <div class="col" style="max-width: 80px;">
-                                    <input type="text" class="form-control text-center" value="1">
-                                </div>
-                                <div class="col">100€</div>
-                                <div class="col"><a class="btn btn-danger my-2 my-sm-0 ms-3" type="submit">Eliminar</a></div>
                             </div>
-                        </div>
-                        <div class="row border-top border-bottom">
-                            <div class="row main align-items-center">
-                                <div class="col-2"><img class="img-fluid" src="../img/720p.png" alt="720p"></div>
-                                <div class="col-6">
-                                    <div class="row text-muted">Artículo</div>
-                                    <div class="row">Descripción.</div>
+                            <div class="row mb-3">
+                                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="precio" placeholder="Precio del producto">
                                 </div>
-                                <div class="col">100€</div>
-                                <div class="col" style="max-width: 80px;">
-                                    <input type="text" class="form-control text-center" value="1">
-                                </div>
-                                <div class="col">100€</div>
-                                <div class="col"><a class="btn btn-danger my-2 my-sm-0 ms-3" type="submit">Eliminar</a></div>
                             </div>
-                        </div>
-                        <div class="row border-top border-bottom">
-                            <div class="row main align-items-center">
-                                <div class="col-2"><img class="img-fluid" src="../img/480p.png" alt="480p"></div>
-                                <div class="col-6">
-                                    <div class="row text-muted">Artículo</div>
-                                    <div class="row">Descripción. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum ut at corrupti ad dolore modi officiis recusandae optio, doloribus excepturi molestiae fugiat tempora tempore aliquid voluptatem perspiciatis consequuntur ipsa dignissimos!</div>
-                                </div>
-                                <div class="col">100€</div>
-                                <div class="col" style="max-width: 80px;">
-                                    <input type="text" class="form-control text-center" value="1">
-                                </div>
-                                <div class="col">100€</div>
-                                <div class="col"><a class="btn btn-danger my-2 my-sm-0 ms-3" type="submit">Eliminar</a></div>
-                            </div>
-                        </div>
-                        <!-- CONFIRMAR -->
-                        <div class="row border-top border-bottom">
-                            <div class="row main align-items-center">
-                                <div class="col-2"></div>
-                                <div class="col-6">
-                                    <div class="row text-muted">3 Artículos</div>
-                                </div>
-                                <div class="col">Total:</div>
-                                <div class="col" style="max-width: 80px;">
-                                    <!-- <input type="text" class="form-control text-center" value="1"> -->
-                                </div>
-                                <div class="col">300€</div>
-                                <div class="col"><a class="btn btn-dark my-2 my-sm-0 ms-3" type="submit">Comprar</a></div>
-                            </div>
-                        </div>
+                            <button type="submit" class="btn btn-dark">Agregar</button>
+                        </form>
                     </div>
                 </div>
+                <h1>Administración de Productos</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="../img/1080p.png" width="100px" alt="1080p"></td>
+                            <td>Producto 1. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, provident omnis eligendi molestiae voluptates sequi impedit earum rem voluptatibus in eum doloribus explicabo quidem minima, magnam cum laudantium autem? Quasi.</td>
+                            <td>$100</td>
+                            <td><button type="button" class="btn btn-dark btn-sm">Editar</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm">Eliminar</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../img/360p.png" width="100px" alt="360p"></td>
+                            <td>Producto 2</td>
+                            <td>$200</td>
+                            <td><button type="button" class="btn btn-dark btn-sm">Editar</button></td>
+                            <td><button type="button" class="btn btn-danger btn-sm">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </main>
         <!-- ======================================= -->
