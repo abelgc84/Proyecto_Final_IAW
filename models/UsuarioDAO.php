@@ -14,8 +14,8 @@ class Usuario {
     /**
      * getUsuarioById
      * Devuelve un usuario
-     * @param int Identificador del usuario
-     * @return object usuario
+     * @param  int Identificador del usuario
+     * @return object usuario con nombres de propiedades que corresponden a las columnas de la base de datos
      * @return -1 en caso de error
      */
     public function getUsuarioById($iduser){
@@ -25,7 +25,7 @@ class Usuario {
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
-            echo $e . "<br>";
+            // echo $e . "<br>";
             return -1;
         }
     }
@@ -33,9 +33,9 @@ class Usuario {
     /**
      * addUsuario
      * Registra un usuario en la base de datos
-     * @param string Nombre del usuario, VARCHAR(50)
-     * @param string Contraseña del usuario, VARCHAR(50)
-     * @param string Rol del usuario, ENUM ('Admin', 'User')
+     * @param  string Nombre del usuario, VARCHAR(50)
+     * @param  string Contraseña del usuario, VARCHAR(50)
+     * @param  string Rol del usuario, ENUM ('Admin', 'User')
      * @return void
      * @return -1 en caso de error
      */
@@ -55,7 +55,7 @@ class Usuario {
     /**
      * comprobarUsuario
      * Devuelve el Rol de un usuario.
-     * @param int Identificador del usuario
+     * @param  int Identificador del usuario
      * @return string Rol del usuario, ENUM ('Admin', 'User')
      * @return false en caso de error
      */
@@ -66,7 +66,7 @@ class Usuario {
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_OBJ)->Rol;
         } catch (PDOException $e) {
-            echo $e . "<br>";
+            // echo $e . "<br>";
             return false;
         }
     }

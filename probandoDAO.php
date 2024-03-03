@@ -78,6 +78,8 @@
 
 include ('models/UsuarioDAO.php');
 
+### addUsuario ###
+
 // $usuario = new Usuario();
 
 // $nombre = "Natalia";
@@ -92,7 +94,29 @@ include ('models/UsuarioDAO.php');
 //     echo "Usuario registrado correctamente.";
 // }
 
-$usuario = new Usuario();
+### getUsuarioById ###
 
+// $usuario = new Usuario();
+// $usuario = $usuario->getUsuarioById(2);
+
+// if ($usuario === -1) {
+//     echo "Error al acceder a la base de datos.";
+// } else {
+//     echo "<br>";
+//     echo "Nombre: " . $usuario->Nombre . "<br>";
+//     echo "Contraseña: " . $usuario->Password . "<br>";
+//     echo "Rol: " . $usuario->Rol . "<br>";
+// }
+
+### comprobarUsuario ###
+
+$usuario = new Usuario();
+$usuario = $usuario->comprobarUsuario(2);
+
+if ($usuario === -1) {
+    echo "Error al acceder a la abse de datos.";
+} else {
+    echo $usuario;
+}
 
 ?>
