@@ -46,10 +46,17 @@ class Pedido {
             return -1;
         }
     }
-
+    
+    /**
+     * getProductosByPedido
+     * Devuelve los productos de un pedido
+     * @param  int Identificador de pedido, INT
+     * @return array con las filas de los productos de un pedido
+     * @return -1 en caso de error
+     */
     public function getProductosByPedido($idpedido) {
         try {
-
+            $stmt=$this->con_bd->prepare("SELECT * FROM Productos INNER")
         } catch (PDOException $e) {
             echo $e . "<br>";
             return -1;
