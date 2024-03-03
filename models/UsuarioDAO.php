@@ -11,8 +11,13 @@ class Usuario {
         $this->con_bd=Database::connect();
     }
     
-    # Retorna un objeto con nombres de propiedades que corresponden a las columnas de la base de datos.
-    # Retorna -1 en caso de error.
+    /**
+     * getUsuarioById
+     * Devuelve un usuario
+     * @param int Identificador del usuario
+     * @return object usuario
+     * @return -1 en caso de error
+     */
     public function getUsuarioById($iduser){
         try {
             $stmt=$this->con_bd->prepare("SELECT * FROM Usuarios WHERE ID=:iduser");
@@ -24,9 +29,16 @@ class Usuario {
             return -1;
         }
     }
-
-    # Registra un usuario en la base de datos.
-    # Retorna -1 en caso de error.
+   
+    /**
+     * addUsuario
+     * Registra un usuario en la base de datos
+     * @param string Nombre del usuario, VARCHAR(50)
+     * @param string Contraseña del usuario, VARCHAR(50)
+     * @param string Rol del usuario, ENUM ('Admin', 'User')
+     * @return void
+     * @return -1 en caso de error
+     */
     public function addUsuario($nombre,$password,$rol) {
         try {
             $stmt=$this->con_bd->prepare("INSERT INTO Usuarios (Nombre,Password,Rol) VALUES (:nombre,:password,:rol)");
@@ -35,13 +47,28 @@ class Usuario {
             $stmt->bindValue(':rol',$rol);
             $stmt->execute();
         } catch (PDOException $e) {
-            echo $e . "<br>";
+            // echo $e . "<br>";
             return -1;
         }
     }
-
-    public function comprobarUsuario() {
-
+        
+    /**
+     * comprobarUsuario
+     * Devuelve el Rol de un usuario.
+     * @param int Identificador del usuario
+     * @return string Rol del usuario, ENUM ('Admin', 'User')
+     * @return false en caso de error
+     */
+    public function comprobarUsuario($id) {
+        try {
+            $stmt=$this->con_bd->prepare("SELECT Rol FROM Usuarios WHERE ID=:id");
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ)->Rol;
+        } catch (PDOException $e) {
+            echo $e . "<br>";
+            return false;
+        }
     }
 
 }

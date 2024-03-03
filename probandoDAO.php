@@ -1,10 +1,9 @@
 <?php
 
-include ('./models/ProductoDAO.php');
+// include ('./models/ProductoDAO.php');
 
 
 // ### addProduct ###
-// ### FUNCIONA ###
 
 // $producto = new Producto();
 
@@ -25,7 +24,6 @@ include ('./models/ProductoDAO.php');
 
 
 // ### getAllProducts ###
-// ### FUNCIONA ###
 
 // $productos = new Producto();
 
@@ -49,7 +47,6 @@ include ('./models/ProductoDAO.php');
 
 
 // ### getProductByID ###
-// ### FUNCIONA ###
 
 // $producto = new Producto();
 // $producto = $producto->getProductById(1);
@@ -69,7 +66,6 @@ include ('./models/ProductoDAO.php');
 
 
 // ### delProduct ###
-// ### FUNCIONA ###
 
 // $producto = new Producto();
 // $producto = $producto->delProduct(1);
@@ -79,5 +75,24 @@ include ('./models/ProductoDAO.php');
 // } else {
 //     echo "Producto eliminado correctamente";
 // }
+
+include ('models/UsuarioDAO.php');
+
+// $usuario = new Usuario();
+
+// $nombre = "Natalia";
+// $password = "Natalia1234";
+// $rol = "Admin";
+
+// $resultado = $usuario->addUsuario($nombre, $password, $rol);
+
+// if ($resultado === -1) {
+//     echo "Error al acceder a la base de datos.";
+// } else {
+//     echo "Usuario registrado correctamente.";
+// }
+
+$usuario = new Usuario();
+
 
 ?>
