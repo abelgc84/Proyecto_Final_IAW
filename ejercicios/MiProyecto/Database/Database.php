@@ -6,7 +6,7 @@ class Database {
 
         $host='mariadb';
         //$dbname=getenv('MARIADB_DATABASE');
-        $dbname='PCAccesorios';
+        $dbname='Usuario';
         try {
             
             $dsn='mysql:host='.$host.';dbname='.$dbname.';charset=UTF8';

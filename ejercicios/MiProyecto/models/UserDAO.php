@@ -1,6 +1,6 @@
 <?php
 
-include ('../Database/Database.php');
+include ('Database/Database.php');
 
 # Clase DAO que ataca la tabla User
 class UserDAO {
