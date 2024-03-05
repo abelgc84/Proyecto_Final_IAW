@@ -1,10 +1,49 @@
 <!--
-    Vista que muestra los datos en forma de tabla. 
+    Vista que muestra los productos en tarjetas. 
     Recibe los datos a mostrar a través del parámetro $data (utilizado en la función View::show).
 -->
+<?php
+
+    // Contar el número de productos
+    $count = 0;
+
+    foreach ($data as $article) {
+        if ($count % 4 == 0) {
+            // Empezar una nueva fila cada 4 productos
+            echo "<div class=\"row p-5\">";
+        }
+
+        echo "<div class=\"col-md-3\">";
+            echo "<div class=\"card\" style=\"width: 18rem;\">";
+                echo "<img src=" . $article['Imagen'] . " class=\"card-img-top\">";
+                echo "<div class=\"card-body\">";
+                    echo "<h5 class=\"card-title\">" . $article['Nombre'] . "</h5>";
+                    echo "<h6 class=\"card-title text-end\">Precio: " . $article['Precio'] . " €</h6>";
+                    echo "<p class=\"card-text\">" . $article['Descripción'] . "</p>";
+                    echo "<a href=\"#\" class=\"btn btn-dark\">Añadir al carrito</a>"; // HREF VACIO
+                echo "</div>";
+            echo "</div>";
+        echo "</div>";
+
+        $count++;
+
+        if ($count % 4 == 0) {
+            // Cerrar la fila cada 4 productos
+            echo "</div>";
+        }
+    }
+
+    // Cierra la última fila
+    if ($count % 4 != 0) {
+        echo "</div>";
+    }
+
+?>
+
+<!--  
+
 <div class="container">
     <h1> Listado de productos </h1>
-
     <table class="table" border="2">
         <tr>
             <th>Referencia</th>
@@ -31,54 +70,4 @@
     </table>
 </div>
 
-<?php
-
-    
-
-?>
-<div class="row mb-5">
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="img/360p.png" class="card-img-top" alt="360p">
-            <div class="card-body">
-                <h5 class="card-title">Artículo 1</h5>
-                <h6 class="card-title text-end">Precio</h6>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ratione adipisci atque id officiis excepturi ea quam? Obcaecati quasi eum natus ipsum excepturi sint, corporis, autem, blanditiis architecto incidunt corrupti.</p>
-                <a href="#" class="btn btn-dark">Añadir al carrito</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="img/480p.png" class="card-img-top" alt="480p">
-            <div class="card-body">
-                <h5 class="card-title">Artículo 2</h5>
-                <h6 class="card-title text-end">Precio</h6>
-                <p class="card-text">Descripción del artículo dos.</p>
-                <a href="#" class="btn btn-dark">Añadir al carrito</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="img/720p.png" class="card-img-top" alt="720p">
-            <div class="card-body">
-                <h5 class="card-title">Artículo 3</h5>
-                <h6 class="card-title text-end">Precio</h6>
-                <p class="card-text">Descripción del artículo tres.</p>
-                <a href="#" class="btn btn-dark">Añadir al carrito</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card" style="width: 18rem;">
-            <img src="img/1080p.png" class="card-img-top" alt="1080p">
-            <div class="card-body">
-                <h5 class="card-title">Artículo 4</h5>
-                <h6 class="card-title text-end">Precio</h6>
-                <p class="card-text">Descripción del artículo cuatro.</p>
-                <a href="#" class="btn btn-dark">Añadir al carrito</a>
-            </div>
-        </div>
-    </div>
-</div>
+-->
