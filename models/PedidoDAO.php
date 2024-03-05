@@ -3,7 +3,7 @@
 include ('bd/Database.php');
 
 # Clase DAO para la tabla Pedidos
-class Pedido {
+class PedidoDAO {
 
     private $con_bd;
 
@@ -56,7 +56,7 @@ class Pedido {
      */
     public function getProductosByPedido($idpedido) {
         try {
-            $stmt=$this->con_bd->prepare("SELECT * FROM Productos INNER")
+            $stmt=$this->con_bd->prepare("SELECT * FROM Productos INNER");
         } catch (PDOException $e) {
             echo $e . "<br>";
             return -1;

@@ -3,7 +3,7 @@
 include ('bd/Database.php');
 
 # Clase DAO para la tabla Productos.
-class Producto {
+class ProductoDAO {
 
     private $con_bd;
 

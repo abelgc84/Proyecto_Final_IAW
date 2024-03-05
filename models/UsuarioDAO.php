@@ -3,7 +3,7 @@
 include ('bd/Database.php');
 
 # Clase DAO para la tabla Usuario
-class Usuario {
+class UsuarioDAO {
 
     private $con_bd;
 
