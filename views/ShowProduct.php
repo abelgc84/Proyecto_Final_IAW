@@ -13,6 +13,7 @@
             echo "<div class=\"row p-5\">";
         }
 
+        // Mostrar cada producto
         echo "<div class=\"col-md-3\">";
             echo "<div class=\"card\" style=\"width: 18rem;\">";
                 echo "<img src=" . $article['Imagen'] . " class=\"card-img-top\">";
