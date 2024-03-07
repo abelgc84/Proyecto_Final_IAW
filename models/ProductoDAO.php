@@ -92,6 +92,74 @@ class ProductoDAO {
             return -1;
         }
     }
+
+    /**
+     * getOffers
+     * Devuelve todos los productos con oferta
+     * @return array con todas las filas devueltas por la base de datos
+     * @return -1 en caso de error
+     */    
+    public function getOffers(){
+        try {
+            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE oferta=1");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
+            return -1;
+        }
+    }
+
+    /**
+     * getMouse
+     * Devuelve todos los productos de la categoría ratón
+     * @return array con todas las filas devueltas por la base de datos
+     * @return -1 en caso de error
+     */
+    public function getMouse(){
+        try {
+            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE categoría='raton'");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
+            return -1;
+        }
+    }
+    
+    /**
+     * getKeyboard
+     * Devuelve todos los productos de la categoría teclado
+     * @return array con todas las filas devueltas por la base de datos
+     * @return -1 en caso de error
+     */
+    public function getKeyboard(){
+        try {
+            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE categoría='teclado'");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
+            return -1;
+        }
+    }
+
+    /**
+     * getHeadPhones
+     * Devuelve todos los productos de la categoría auriculares
+     * @return array con todas las filas devueltas por la base de datos
+     * @return -1 en caso de error
+     */
+    public function getHeadPhones(){
+        try {
+            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE categoría='auricular'");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
+            return -1;
+        }
+    }
 }
 
 ?>

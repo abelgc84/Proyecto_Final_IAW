@@ -32,9 +32,9 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas las categorías</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Teclados</a>
-                                    <a class="dropdown-item" href="#">Ratones</a>
-                                    <a class="dropdown-item" href="#">Auriculares</a>
+                                    <a class="dropdown-item" href="index.php?controller=ProductController&action=getKeyboard">Teclados</a>
+                                    <a class="dropdown-item" href="index.php?controller=ProductController&action=getMouse">Ratones</a>
+                                    <a class="dropdown-item" href="index.php?controller=ProductController&action=getHeadPhones">Auriculares</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">Outlet</a>
                                 </div>
