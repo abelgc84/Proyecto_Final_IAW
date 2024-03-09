@@ -18,7 +18,7 @@ class UsuarioDAO {
      * @return object usuario con nombres de propiedades que corresponden a las columnas de la base de datos
      * @return -1 en caso de error
      */
-    public function getUsuarioById($iduser){
+    public function getUserById($iduser){
         try {
             $stmt=$this->con_bd->prepare("SELECT * FROM Usuarios WHERE ID=:iduser");
             $stmt->bindValue(':iduser', $iduser);
@@ -39,7 +39,7 @@ class UsuarioDAO {
      * @return void
      * @return -1 en caso de error
      */
-    public function addUsuario($nombre,$password,$rol) {
+    public function addUser($nombre,$password,$rol) {
         try {
             $stmt=$this->con_bd->prepare("INSERT INTO Usuarios (Nombre,Password,Rol) VALUES (:nombre,:password,:rol)");
             $stmt->bindValue(':nombre',$nombre);
@@ -53,21 +53,37 @@ class UsuarioDAO {
     }
         
     /**
-     * comprobarUsuario
-     * Devuelve el Rol de un usuario.
+     * deleteUser
+     * Elimina un usuario de la base de datos
      * @param  int Identificador del usuario
-     * @return string Rol del usuario, ENUM ('Admin', 'User')
-     * @return false en caso de error
+     * @return void
+     * @return -1 en caso de error
      */
-    public function comprobarUsuario($id) {
+    public function deleteUser($iduser) {
         try {
-            $stmt=$this->con_bd->prepare("SELECT Rol FROM Usuarios WHERE ID=:id");
-            $stmt->bindValue(':id',$id);
+            $stmt=$this->con_bd->prepare("DELETE FROM Usuarios WHERE ID=:iduser");
+            $stmt->bindValue(':iduser',$iduser);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_OBJ)->Rol;
         } catch (PDOException $e) {
             // echo $e . "<br>";
-            return false;
+            return -1;
+        }
+    }
+
+    /**
+     * getAllUsers
+     * Devuelve todos los usuarios
+     * @return array de objetos usuario con nombres de propiedades que corresponden a las columnas de la base de datos
+     * @return -1 en caso de error
+     */
+    public function getAllUsers(){
+        try {
+            $stmt=$this->con_bd->prepare("SELECT * FROM Usuarios");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
+            return -1;
         }
     }
 
