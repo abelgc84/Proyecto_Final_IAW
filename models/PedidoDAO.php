@@ -56,30 +56,16 @@ class PedidoDAO {
      */
     public function getProductosByPedido($idpedido) {
         try {
-            $stmt=$this->con_bd->prepare("SELECT * FROM Productos INNER");
+            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE ID_pedido=:idpedido");
+            $stmt->bindValue(':idpedido', $idpedido);
+            $stmt->execute();
+            return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e . "<br>";
             return -1;
         }
     }
 
-    public function addPedido() {
-        try {
-
-        } catch (PDOException $e) {
-            echo $e . "<br>";
-            return -1;
-        }
-    }
-
-    public function addProductoToPedido($ref) {
-        try {
-
-        } catch (PDOException $e) {
-            echo $e . "<br>";
-            return -1;
-        }
-    }
 }
 
 ?>
