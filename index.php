@@ -1,6 +1,9 @@
 <?php
+session_start();
+
 include_once ("views/header.php");
-include ("controllers/ProductController.php");
+include_once ("controllers/ProductController.php");
+include_once ("controllers/UserController.php");
 
 //Punto de entrada a la aplicación. Si no se recibe parámetro action y controller en la url
 //se muestra la página de inicio (texto HTML).
@@ -15,9 +18,11 @@ if (isset($_REQUEST['action']) && isset($_REQUEST['controller']) ){
     $controller->$act();
 
 }
-else
-    //Página de entrada
-    echo 'Muestra la página de inicio';
+else {
+    // Página de inicio, muestra todos los productos
+    $controller=new ProductController();
+    $controller->getAllProducts();
+}
 
   require_once ("views/footer.php");
 

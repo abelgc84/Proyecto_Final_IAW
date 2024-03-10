@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="navbarColor02">
                         <ul class="navbar-nav w-100">
                             <li class="nav-item">
-                            <li class="nav-item"><a href="index.php?controller=ProductController&action=getAllProducts" class="nav-link">Listar Productos</a></li>
+                            <li class="nav-item"><a href="index.php" class="nav-link">Inicio</a></li>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Todas las categorías</a>
@@ -39,15 +39,19 @@
                                     <a class="dropdown-item" href="#">Outlet</a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="html/admin.html">Administración</a>
-                            </li>
+                            <?php
+                            if (isset($_SESSION['user'])=='admin') {
+                                echo "<li class=\"nav-item\">";
+                                    echo "<a class=\"nav-link\" href=\"html/admin.html\">Administración</a>";
+                                echo "</li>";
+                            }
+                            ?>
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-sm-2" type="search" placeholder="Buscar">
                             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
                         </form>
-                        <a class="btn btn-secondary my-2 my-sm-0 ms-3" href="html/login.html" type="submit">Login</a>
+                        <a class="btn btn-secondary my-2 my-sm-0 ms-3" href="index.php?controller=UserController&action=showlogin" type="submit">Login</a>
                         <div class="cart-menu">
                             <a href="html/carrito.html"><img src="assets/carrito.png"></a>
                         </div>

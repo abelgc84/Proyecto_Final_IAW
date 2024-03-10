@@ -1,6 +1,6 @@
 <?php
 
-include ('bd/Database.php');
+include_once ('bd/Database.php');
 
 # Clase DAO para la tabla Productos.
 class ProductoDAO {
