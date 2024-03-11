@@ -60,5 +60,40 @@ class ProductController {
         $pDAO=null;
         View::show("showAdminPanel", $products);
     }
+
+    /**
+     * Método para añadir un producto al carrito.
+     * Utilizaremos la variable de sesión $_SESSION['cart'] para almacenar los productos que se vayan añadiendo.
+     */
+    public function addToCart(){
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+
+        // Comprobamos si la variable de sesión $_SESSION['cart'] existe
+        if (!isset($_SESSION['cart'])) {
+            // Si no existe, la creamos como un array vacío
+            $_SESSION['cart'] = array();
+        }
+        
+        // Obtenemos el nombre del producto
+        $nombreProducto = $_POST['nombreProducto'];
+        // Obtenemos el id del producto
+        $productId = $pDAO->getProductId($nombreProducto);
+        $pDAO=null;
+        
+        // Comprobamos si el producto ya está en el carrito
+        if (!isset($_SESSION['cart'][$productId])) {
+            // Si no está, lo añadimos con cantidad 1
+            $_SESSION['cart'][$productId] = 1;
+        } else {
+            // Si ya está, incrementamos la cantidad
+            $_SESSION['cart'][$productId]++;
+        }
+        // Volvemos a la página de productos
+        echo '<script type="text/javascript">';
+            echo 'window.location.href="' . $_SERVER['PHP_SELF'] . '";';
+        echo '</script>';
+    }
+
 }
 ?>

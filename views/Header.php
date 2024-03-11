@@ -59,7 +59,14 @@
                         }
                         ?>
                         <div class="cart-menu">
-                            <a href="html/carrito.html"><img src="assets/carrito.png"></a>
+                            <a href="index.php?controller=UserController&action=showCart">
+                            <img src="assets/carrito.png">
+                            <?php
+                                if (isset($_SESSION['cart'])) {
+                                    echo "<span class='badge bg-success text-white'>" . array_sum($_SESSION['cart']) . "</span>";
+                                }
+                            ?>
+                            </a>
                         </div>
                     </div>
                 </div>

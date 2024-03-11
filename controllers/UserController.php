@@ -52,8 +52,9 @@ class UserController {
                 // Si el usuario y la contraseña son correctos, guardamos el usuario en la sesión
                 $_SESSION['user']=$user;
                 // Mostramos la página de inicio
-                $controller=new ProductController();
-                $controller->getAllProducts();
+                echo '<script type="text/javascript">';
+                    echo 'window.location.href="index.php";';
+                echo '</script>';
             }
             else {
                 // Si el usuario y la contraseña no son correctos, mostramos un mensaje de error
@@ -70,10 +71,21 @@ class UserController {
         // Cerramos la sesión
         session_destroy();
         // Mostramos la página de inicio
-        $controller=new ProductController();
-        $controller->getAllProducts();
+        echo '<script type="text/javascript">';
+            echo 'window.location.href="index.php";';
+        echo '</script>';
     }
     
+    /**
+     * Método para mostrar el carrito de la compra.
+     */
+    public function showCart(){
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+        $products=$pDAO->getAllProducts();
+        $pDAO=null;
+        View::show("showCart", $products);
+    }
 }
 
 ?>

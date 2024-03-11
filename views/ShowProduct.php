@@ -1,5 +1,12 @@
 <?php
-
+    /**
+     * Controlador que añade un producto al carrito.
+     */
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        require_once 'controllers/ProductController.php';
+        $controller = new ProductController();
+        $controller->addToCart();
+    }
     /**
      *  Vista que muestra los productos en tarjetas. 
      *   Recibe los datos a mostrar a través del parámetro $data (utilizado en la función View::show). 
@@ -22,7 +29,10 @@
                     echo "<h5 class=\"card-title\" style=\"height: 50px;\">" . $article['Nombre'] . "</h5>";
                     echo "<h6 class=\"card-title text-end\">Precio: " . $article['Precio'] . " €</h6>";
                     echo "<p class=\"card-text\">" . $article['Descripción'] . "</p>";
-                    echo "<a href=\"#\" class=\"btn btn-dark\">Añadir al carrito</a>"; // HREF VACIO
+                    echo "<form method='post' action=''>";
+                        echo "<input type='hidden' name='nombreProducto' value='" . $article['Nombre'] . "'>";
+                        echo "<button type='submit' class='btn btn-dark'>Añadir al carrito</button>";
+                    echo "</form>";
                 echo "</div>";
             echo "</div>";
         echo "</div>";

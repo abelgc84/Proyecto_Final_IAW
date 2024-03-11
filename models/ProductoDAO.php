@@ -94,23 +94,6 @@ class ProductoDAO {
     }
 
     /**
-     * getOffers
-     * Devuelve todos los productos con oferta
-     * @return array con todas las filas devueltas por la base de datos
-     * @return -1 en caso de error
-     */    
-    public function getOffers(){
-        try {
-            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE oferta=1");
-            $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (PDOException $e) {
-            // echo $e . "<br>";
-            return -1;
-        }
-    }
-
-    /**
      * getMouse
      * Devuelve todos los productos de la categoría ratón
      * @return array con todas las filas devueltas por la base de datos
@@ -155,6 +138,25 @@ class ProductoDAO {
             $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE categoría='auricular'");
             $stmt->execute();
             return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
+            return -1;
+        }
+    }
+    
+    /**
+     * getProductId
+     * Devuelve el id de un producto dado su nombre
+     * @param  string Nombre del producto, VARCHAR(50)
+     * @return int Id del producto, INT
+     * @return -1 en caso de error
+     */
+    public function getProductId($nombre) {
+        try {
+            $stmt=$this->con_bd->prepare("SELECT id FROM productos WHERE nombre=:nombre");
+            $stmt->bindValue(':nombre', $nombre);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
         } catch (PDOException $e) {
             // echo $e . "<br>";
             return -1;
