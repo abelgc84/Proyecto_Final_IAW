@@ -49,5 +49,16 @@ class ProductController {
         $pDAO=null;
         View::show("showHeadPhones", $products);
     }
+
+    /**
+     * Método para mostrar los productos en el panel de administración.
+     */
+    public function getAdminProducts(){
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+        $products=$pDAO->getAllProducts();
+        $pDAO=null;
+        View::show("showAdminPanel", $products);
+    }
 }
 ?>

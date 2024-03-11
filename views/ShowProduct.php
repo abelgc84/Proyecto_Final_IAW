@@ -1,9 +1,9 @@
 <?php
 
-/**
- *  Vista que muestra los productos en tarjetas. 
- *   Recibe los datos a mostrar a través del parámetro $data (utilizado en la función View::show). 
- */
+    /**
+     *  Vista que muestra los productos en tarjetas. 
+     *   Recibe los datos a mostrar a través del parámetro $data (utilizado en la función View::show). 
+     */
     
     // Contar el número de productos
     $count = 0;

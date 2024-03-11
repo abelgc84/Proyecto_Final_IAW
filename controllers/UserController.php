@@ -15,6 +15,17 @@ class UserController {
     }
 
     /**
+     * Método para mostrar el panel de administración.
+     */
+    public function showAdmin(){
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+        $products=$pDAO->getAllProducts();
+        $pDAO=null;
+        View::show("showAdminPanel", $products);
+    }
+
+    /**
      * Método para logearse en la aplicación.
      */
     public function login(){
@@ -50,6 +61,17 @@ class UserController {
                 View::show("showLogin", $errores);
             }
         }
+    }
+
+    /**
+     * Método para cerrar la sesión.
+     */
+    public function logout(){
+        // Cerramos la sesión
+        session_destroy();
+        // Mostramos la página de inicio
+        $controller=new ProductController();
+        $controller->getAllProducts();
     }
     
 }

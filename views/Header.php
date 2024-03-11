@@ -42,7 +42,7 @@
                             <?php
                             if (isset($_SESSION['user'])=='admin') {
                                 echo "<li class=\"nav-item\">";
-                                    echo "<a class=\"nav-link\" href=\"html/admin.html\">Administración</a>";
+                                    echo "<a class=\"nav-link\" href=\"index.php?controller=UserController&action=showAdmin\">Administración</a>";
                                 echo "</li>";
                             }
                             ?>
@@ -51,7 +51,13 @@
                             <input class="form-control me-sm-2" type="search" placeholder="Buscar">
                             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
                         </form>
-                        <a class="btn btn-secondary my-2 my-sm-0 ms-3" href="index.php?controller=UserController&action=showlogin" type="submit">Login</a>
+                        <?php
+                        if (!isset($_SESSION['user'])) {
+                            echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=showlogin\" type=\"submit\">Login</a>";
+                        } else {
+                            echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Logout</a>";
+                        }
+                        ?>
                         <div class="cart-menu">
                             <a href="html/carrito.html"><img src="assets/carrito.png"></a>
                         </div>
