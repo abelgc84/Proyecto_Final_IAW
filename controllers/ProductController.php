@@ -91,5 +91,47 @@ class ProductController {
         echo '</script>';
     }
 
+    /**
+     * Método para disminuir la cantidad de un producto en el carrito.
+     * @param $id: id del producto a disminuir.
+     */
+    public function disminuirCantidad($id){
+        // Comprobamos si la variable de sesión $_SESSION['cart'] existe
+        if (isset($_SESSION['cart'])) {
+            // Si existe, comprobamos si el producto está en el carrito
+            if (isset($_SESSION['cart'][$id])) {
+                // Si está, disminuimos la cantidad
+                $_SESSION['cart'][$id]--;
+                // Si la cantidad es 0, eliminamos el producto del carrito
+                if ($_SESSION['cart'][$id] == 0) {
+                    unset($_SESSION['cart'][$id]);
+                }
+            }
+        }
+        // Refrescamos la página
+        echo '<script type="text/javascript">';
+            echo 'window.location.href="' . $_SERVER['PHP_SELF'] . '";';
+        echo '</script>';
+    }
+
+    /**
+     * Método para aumentar la cantidad de un producto en el carrito.
+     * @param $id: id del producto a aumentar.
+     */
+    public function aumentarCantidad($id){
+        // Comprobamos si la variable de sesión $_SESSION['cart'] existe
+        if (isset($_SESSION['cart'])) {
+            // Si existe, comprobamos si el producto está en el carrito
+            if (isset($_SESSION['cart'][$id])) {
+                // Si está, aumentamos la cantidad
+                $_SESSION['cart'][$id]++;
+            }
+        }
+        // Refrescamos la página
+        echo '<script type="text/javascript">';
+            echo 'window.location.href="' . $_SERVER['PHP_SELF'] . '";';
+        echo '</script>';
+    }
+
 }
 ?>

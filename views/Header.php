@@ -47,6 +47,10 @@
                             }
                             ?>
                         </ul>
+                         <!-- Añadimos un botón de debug para poder hacer logout -->
+                        <?php
+                            echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Debug Logout</a>";
+                        ?>
                         <form class="d-flex">
                             <input class="form-control me-sm-2" type="search" placeholder="Buscar">
                             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
