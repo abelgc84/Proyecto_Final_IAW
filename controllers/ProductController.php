@@ -66,8 +66,6 @@ class ProductController {
      * Utilizaremos la variable de sesión $_SESSION['cart'] para almacenar los productos que se vayan añadiendo.
      */
     public function addToCart(){
-        require_once ("models/ProductoDAO.php");
-        $pDAO=new ProductoDAO();
 
         // Comprobamos si la variable de sesión $_SESSION['cart'] existe
         if (!isset($_SESSION['cart'])) {
@@ -75,21 +73,19 @@ class ProductController {
             $_SESSION['cart'] = array();
         }
         
-        // Obtenemos el nombre del producto
-        $nombreProducto = $_POST['nombreProducto'];
         // Obtenemos el id del producto
-        $productId = $pDAO->getProductId($nombreProducto);
-        $pDAO=null;
+        $Id = $_POST['referencia'];
+ 
         
         // Comprobamos si el producto ya está en el carrito
-        if (!isset($_SESSION['cart'][$productId])) {
+        if (!isset($_SESSION['cart'][$Id])) {
             // Si no está, lo añadimos con cantidad 1
-            $_SESSION['cart'][$productId] = 1;
+            $_SESSION['cart'][$Id] = 1;
         } else {
             // Si ya está, incrementamos la cantidad
-            $_SESSION['cart'][$productId]++;
+            $_SESSION['cart'][$Id]++;
         }
-        // Volvemos a la página de productos
+        // Refrescamos la página
         echo '<script type="text/javascript">';
             echo 'window.location.href="' . $_SERVER['PHP_SELF'] . '";';
         echo '</script>';

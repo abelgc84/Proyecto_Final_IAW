@@ -66,6 +66,27 @@ class PedidoDAO {
         }
     }
 
+    /**
+     * getProdctosByCarrito
+     * Devuelve los productos de un carrito
+     * @param  array $_SESSION['cart']
+     * @return array con las filas de los productos de un carrito
+     * @return -1 en caso de error
+     */
+    public function getProductByCart($cart) {
+        try {
+            // Creamos un string con tantos ? como productos haya en el carrito
+            $placeholders = str_repeat('?,', count($cart) - 1) . '?';
+            // Creamos la consulta con los ? necesarios
+            $stmt = $this->con_bd->prepare("SELECT * FROM productos WHERE Referencia IN ($placeholders)");
+            $stmt->execute($cart);
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo $e . "<br>";
+            return -1;
+        }
+    }
+
 }
 
 ?>

@@ -63,7 +63,7 @@
                             <img src="assets/carrito.png">
                             <?php
                                 if (isset($_SESSION['cart'])) {
-                                    echo "<span class='badge bg-success text-white'>" . array_sum($_SESSION['cart']) . "</span>";
+                                    echo "<span class='badge bg-success text-white'>" . count($_SESSION['cart']) . "</span>";
                                 }
                             ?>
                             </a>

@@ -144,24 +144,6 @@ class ProductoDAO {
         }
     }
     
-    /**
-     * getProductId
-     * Devuelve el id de un producto dado su nombre
-     * @param  string Nombre del producto, VARCHAR(50)
-     * @return int Id del producto, INT
-     * @return -1 en caso de error
-     */
-    public function getProductId($nombre) {
-        try {
-            $stmt=$this->con_bd->prepare("SELECT id FROM productos WHERE nombre=:nombre");
-            $stmt->bindValue(':nombre', $nombre);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_OBJ);
-        } catch (PDOException $e) {
-            // echo $e . "<br>";
-            return -1;
-        }
-    }
 }
 
 ?>

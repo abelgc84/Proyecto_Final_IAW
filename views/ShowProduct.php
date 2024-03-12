@@ -30,8 +30,8 @@
                     echo "<h6 class=\"card-title text-end\">Precio: " . $article['Precio'] . " €</h6>";
                     echo "<p class=\"card-text\">" . $article['Descripción'] . "</p>";
                     echo "<form method='post' action=''>";
-                        echo "<input type='hidden' name='nombreProducto' value='" . $article['Nombre'] . "'>";
-                        echo "<button type='submit' class='btn btn-dark'>Añadir al carrito</button>";
+                        echo "<input type='hidden' name='referencia' value='" . $article['Referencia'] . "'>";
+                        echo "<button type='submit' name='addToCart' class='btn btn-dark'>Añadir al carrito</button>";
                     echo "</form>";
                 echo "</div>";
             echo "</div>";

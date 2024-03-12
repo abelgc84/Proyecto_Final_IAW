@@ -1,4 +1,7 @@
 <?php
+print_r($_SESSION['cart']);
+echo "<br>";
+print_r($data[0]);
     echo "<div class='container-fluid p-5'>";
         echo "<div class='card'>";
             echo "<div class='row'>";

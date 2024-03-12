@@ -81,9 +81,21 @@ class UserController {
      */
     public function showCart(){
         require_once ("models/ProductoDAO.php");
+        // Comprobamos si la variable de sesión $_SESSION['cart'] existe
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+        
+        $cart=$_SESSION['cart'];
         $pDAO=new ProductoDAO();
-        $products=$pDAO->getAllProducts();
+        $products=array();
+
+        foreach ($cart as $cart=>$product_id) {
+            $product = $pDAO->getProductById($product_id);
+            array_push($products, array($product, $product_id));
+        }
         $pDAO=null;
+
         View::show("showCart", $products);
     }
 }
