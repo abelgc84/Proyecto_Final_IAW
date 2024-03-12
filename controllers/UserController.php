@@ -90,9 +90,12 @@ class UserController {
         $pDAO=new ProductoDAO();
         $products=array();
 
-        foreach ($cart as $cart=>$product_id) {
+        // Guardar en un array los productos del carrito
+        foreach ($cart as $product_id => $cantidad) {
             $product = $pDAO->getProductById($product_id);
-            array_push($products, array($product, $product_id));
+            // Añadir el producto al array, el producto se guarda en la clave 'product' y la cantidad en la clave 'cantidad'
+            // ojo, que el array que se guarda en $products es un array asociativo
+            array_push($products, array('product' => $product, 'cantidad' => $cantidad));
         }
         $pDAO=null;
 

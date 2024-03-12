@@ -32,17 +32,18 @@ class ProductoDAO {
      * getProductById
      * Devuelve un producto
      * @param  int Referencia del producto, INT
-     * @return object producto con nombres de propiedades que corresponden a las columnas de la base de datos
+     * @return array con todas las filas devueltas por la base de datos
      * @return -1 en caso de error
      */
     public function getProductById($ref) {
         try {
-            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE referencia=:ref");
+            $stmt=$this->con_bd->prepare("SELECT * FROM Productos WHERE Referencia=:ref");
             $stmt->bindValue(':ref', $ref);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_OBJ);
+            return $stmt->fetch();
         } catch (PDOException $e) {
-            // echo $e . "<br>";
+            echo $e . "<br>";
             return -1;
         }
     }
