@@ -41,13 +41,21 @@
                             </li>
                             <?php
                             if (isset($_SESSION['user'])=='admin') {
+                                echo "<li class=\"nav-item dropdown\">";
+                                    echo "<a class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Administración</a>";
+                                    echo "<div class=\"dropdown-menu\">";
+                                        echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showAdmin\">Panel de Productos</a>";
+                                        echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showProductForm\">Formulario de Productos</a>";
+                                    echo "</div>";
+                                echo "</li>";
+                            } elseif (isset($_SESSION['user'])=='user') {
                                 echo "<li class=\"nav-item\">";
-                                    echo "<a class=\"nav-link\" href=\"index.php?controller=UserController&action=showAdmin\">Administración</a>";
+                                    echo "<a class=\"nav-link\" href=\"index.php?controller=UserController&action=showUser\">Perfil</a>";
                                 echo "</li>";
                             }
                             ?>
                         </ul>
-                         <!-- Añadimos un botón de debug para poder hacer logout -->
+                         <!-- Botón de debug para poder hacer logout (Destruir sesión) -->
                         <?php
                             echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Debug Logout</a>";
                         ?>
@@ -62,12 +70,12 @@
                             echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Logout</a>";
                         }
                         ?>
-                        <div class="cart-menu">
+                        <div class="cart-menu" style="position: relative;">
                             <a href="index.php?controller=UserController&action=showCart">
                             <img src="assets/carrito.png">
                             <?php
-                                if (isset($_SESSION['cart'])) {
-                                    echo "<span class='badge bg-success text-white'>" . count($_SESSION['cart']) . "</span>";
+                                if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
+                                    echo "<span class='badge bg-success text-white' style='position: absolute; bottom: 0; right: 0;'>" . count($_SESSION['cart']) . "</span>";
                                 }
                             ?>
                             </a>

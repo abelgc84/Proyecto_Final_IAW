@@ -26,6 +26,13 @@ class UserController {
     }
 
     /**
+     * Método para mostrar el formulario de productos
+     */
+    public function showProductForm(){
+        View::show("showProductForm");
+    }
+
+    /**
      * Método para logearse en la aplicación.
      */
     public function login(){

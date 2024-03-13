@@ -62,6 +62,50 @@ class ProductController {
     }
 
     /**
+     * Método para añadir un producto a la BBDD.
+     */
+    public function addProduct() {
+
+        // Comprobamos que se han recibido los datos del formulario.
+        $errores = array();
+        if (empty($_POST['nombre'])) {
+            $errores['nombre'] = "El campo nombre no puede estar vacío";
+        }
+        if ($_POST['categoria'] == 'Elige una categoría...') {
+            $errores['categoria'] = 'Debes seleccionar una categoría.';
+        }
+        if ($_POST['precio'] <= 0) {
+            $errores['precio'] = "El campo precio debe ser mayor que 0";
+        }
+        if (!is_numeric($_POST['precio'])) {
+            $errores['precio'] = "El campo precio debe ser un número";
+        }
+        if (empty($_POST['descripcion'])) {
+            $errores['descripcion'] = "El campo descripción no puede estar vacío";
+        }
+        if (empty($_POST['detalles'])) {
+            $errores['detalles'] = "El campo detalles no puede estar vacío";
+        }
+        // if (empty($_POST['imagen'])) {
+        //     $errores['imagen'] = "El campo imagen no puede estar vacío";
+        // }
+
+        // Si hay errores, los mostramos
+        if (count($errores) > 0) {
+            View::show("showProductForm", $errores);
+        } else {
+            // Si no, añadimos el producto a la BBDD
+            require_once ("models/ProductoDAO.php");
+            $pDAO = new ProductoDAO();
+            $pDAO->addProduct($_POST['nombre'], $_POST['categoria'], $_POST['precio'], $_POST['descripcion'], $_POST['detalles'], 'assets/'.$_POST['imagen']);
+            $pDAO = null;
+            $exito = "Producto añadido con éxito";
+            View::show("showProductForm", $exito);
+        }
+
+    }
+
+    /**
      * Método para añadir un producto al carrito.
      * Utilizaremos la variable de sesión $_SESSION['cart'] para almacenar los productos que se vayan añadiendo.
      */
