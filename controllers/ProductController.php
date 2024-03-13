@@ -92,44 +92,19 @@ class ProductController {
     }
 
     /**
-     * Método para disminuir la cantidad de un producto en el carrito.
-     * @param $id: id del producto a disminuir.
+     * Método para eliminar un producto del carrito.
      */
-    public function disminuirCantidad($id){
-        // Comprobamos si la variable de sesión $_SESSION['cart'] existe
-        if (isset($_SESSION['cart'])) {
-            // Si existe, comprobamos si el producto está en el carrito
-            if (isset($_SESSION['cart'][$id])) {
-                // Si está, disminuimos la cantidad
-                $_SESSION['cart'][$id]--;
-                // Si la cantidad es 0, eliminamos el producto del carrito
-                if ($_SESSION['cart'][$id] == 0) {
-                    unset($_SESSION['cart'][$id]);
-                }
-            }
+    public function removeFromCart(){
+        // Obtenemos el id del producto
+        $Id = $_POST['referencia'];
+        // Comprobamos si el producto está en el carrito
+        if (isset($_SESSION['cart'][$Id])) {
+            // Si está, lo eliminamos
+            unset($_SESSION['cart'][$Id]);
         }
         // Refrescamos la página
         echo '<script type="text/javascript">';
-            echo 'window.location.href="' . $_SERVER['PHP_SELF'] . '";';
-        echo '</script>';
-    }
-
-    /**
-     * Método para aumentar la cantidad de un producto en el carrito.
-     * @param $id: id del producto a aumentar.
-     */
-    public function aumentarCantidad($id){
-        // Comprobamos si la variable de sesión $_SESSION['cart'] existe
-        if (isset($_SESSION['cart'])) {
-            // Si existe, comprobamos si el producto está en el carrito
-            if (isset($_SESSION['cart'][$id])) {
-                // Si está, aumentamos la cantidad
-                $_SESSION['cart'][$id]++;
-            }
-        }
-        // Refrescamos la página
-        echo '<script type="text/javascript">';
-            echo 'window.location.href="' . $_SERVER['PHP_SELF'] . '";';
+            echo 'window.location.href="index.php?controller=UserController&action=showCart";';
         echo '</script>';
     }
 
