@@ -8,6 +8,14 @@
         $controller->addToCart();
     }
     /**
+     * Controlador que muestra la página de un producto.
+     */
+    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['ref'])) {
+        require_once 'controllers/UserController.php';
+        $controller = new UserController();
+        $controller->showOneProduct($_GET['ref']);
+    }
+    /**
      *  Vista que muestra los productos en tarjetas. 
      *   Recibe los datos a mostrar a través del parámetro $data (utilizado en la función View::show). 
      */
@@ -24,7 +32,9 @@
         // Mostrar cada producto
         echo "<div class=\"col-md-3\">";
             echo "<div class=\"card\" style=\"width: 18rem;\">";
-                echo "<img src=" . $article['Imagen'] . " class=\"card-img-top\">";
+                echo "<a href=\"index.php?controller=UserController&action=showOneProduct&ref=" . urlencode($article['Referencia']) . "\">";
+                    echo "<img src=" . $article['Imagen'] . " class=\"card-img-top\">";
+                echo "</a>";
                 echo "<div class=\"card-body\">";
                     echo "<h5 class=\"card-title\" style=\"height: 50px;\">" . $article['Nombre'] . "</h5>";
                     echo "<h6 class=\"card-title text-end\">Precio: " . $article['Precio'] . " €</h6>";

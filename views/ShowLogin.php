@@ -17,6 +17,11 @@
                         echo "<div class=\"card\">";
                             echo "<div class=\"card-body\">";
                                 echo "<h5 class=\"card-title\">Login</h5>";
+                                if (isset($data['noencontrado'])) {
+                                        echo "<div class=\"alert alert-danger\" role=\"alert\">";
+                                            echo $data['noencontrado'];
+                                        echo "</div>";
+                                }   
                                 echo "<form action=\"index.php?controller=UserController&action=login\" method=\"post\">";
                                     echo "<div class=\"form-group\">";
                                         echo "<label class=\"form-label mt-4\">Usuario</label>";

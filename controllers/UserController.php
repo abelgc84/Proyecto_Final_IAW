@@ -8,6 +8,25 @@ include_once ("views/View.php");
 class UserController {
 
     /**
+     * Método para mostrar la página de un producto
+     */
+    public function showOneProduct() {
+        $ref=$_GET['ref'];
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+        $product=$pDAO->getProductById($ref);
+        $pDAO=null;
+        View::show("showOneProduct", $product);
+    }
+
+    /**
+     * Método para mostrar WorkInProgress.
+     */
+    public function showWorkInProgress(){
+        View::show("showWorkInProgress");
+    }
+
+    /**
      * Método para mostrar la página de login.
      */
     public function showLogin(){
@@ -65,7 +84,7 @@ class UserController {
             }
             else {
                 // Si el usuario y la contraseña no son correctos, mostramos un mensaje de error
-                $errores[]="Usuario o contraseña incorrectos";
+                $errores['noencontrado']="Usuario o contraseña incorrectos";
                 View::show("showLogin", $errores);
             }
         }

@@ -36,11 +36,11 @@
                                     <a class="dropdown-item" href="index.php?controller=ProductController&action=getMouse">Ratones</a>
                                     <a class="dropdown-item" href="index.php?controller=ProductController&action=getHeadPhones">Auriculares</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Outlet</a>
+                                    <a class="dropdown-item" href="index.php?controller=UserController&action=showWorkInProgress">Outlet</a>
                                 </div>
                             </li>
                             <?php
-                            if (isset($_SESSION['user'])=='admin') {
+                            if (isset($_SESSION['user']) && $_SESSION['user']->Rol =='Admin') {
                                 echo "<li class=\"nav-item dropdown\">";
                                     echo "<a class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Administración</a>";
                                     echo "<div class=\"dropdown-menu\">";
@@ -48,9 +48,13 @@
                                         echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showProductForm\">Formulario de Productos</a>";
                                     echo "</div>";
                                 echo "</li>";
-                            } elseif (isset($_SESSION['user'])=='user') {
-                                echo "<li class=\"nav-item\">";
-                                    echo "<a class=\"nav-link\" href=\"index.php?controller=UserController&action=showUser\">Perfil</a>";
+                            } else if (isset($_SESSION['user']) && $_SESSION['user']->Rol == 'User') {
+                                echo "<li class=\"nav-item dropdown\">";
+                                    echo "<a class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Su Perfil</a>";
+                                    echo "<div class=\"dropdown-menu\">";
+                                        echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showWorkInProgress\">Datos de Usuario</a>"; // VACIO
+                                        echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showWorkInProgress\">Pedidos Realizados</a>"; // VACIO
+                                    echo "</div>";
                                 echo "</li>";
                             }
                             ?>
