@@ -86,9 +86,9 @@ class ProductController {
         if (empty($_POST['detalles'])) {
             $errores['detalles'] = "El campo detalles no puede estar vacío";
         }
-        // if (empty($_POST['imagen'])) {
-        //     $errores['imagen'] = "El campo imagen no puede estar vacío";
-        // }
+        if (empty($_POST['imagen'])) {
+            $errores['imagen'] = "El campo imagen no puede estar vacío";
+        }
 
         // Si hay errores, los mostramos
         if (count($errores) > 0) {
@@ -110,6 +110,7 @@ class ProductController {
      * Utilizaremos la variable de sesión $_SESSION['cart'] para almacenar los productos que se vayan añadiendo.
      */
     public function addToCart(){
+        $uri = $_SERVER['REQUEST_URI'];
 
         // Comprobamos si la variable de sesión $_SESSION['cart'] existe
         if (!isset($_SESSION['cart'])) {
@@ -131,7 +132,7 @@ class ProductController {
         }
         // Refrescamos la página
         echo '<script type="text/javascript">';
-            echo 'window.location.href="' . $_SERVER['PHP_SELF'] . '";';
+            echo 'window.location.href="'.$uri.'";';
         echo '</script>';
     }
 
