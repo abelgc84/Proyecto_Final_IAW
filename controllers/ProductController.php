@@ -140,6 +140,7 @@ class ProductController {
      * Método para eliminar un producto del carrito.
      */
     public function removeFromCart(){
+        $uri = $_SERVER['REQUEST_URI'];
         // Obtenemos el id del producto
         $Id = $_POST['referencia'];
         // Comprobamos si el producto está en el carrito
@@ -149,9 +150,19 @@ class ProductController {
         }
         // Refrescamos la página
         echo '<script type="text/javascript">';
-            echo 'window.location.href="index.php?controller=UserController&action=showCart";';
+            echo 'window.location.href="'.$uri.'";';
         echo '</script>';
     }
 
+    /**
+     * Método para buscar un producto por su nombre.
+     */
+    public function searchProduct(){
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+        $products=$pDAO->searchProduct($_POST['search']);
+        $pDAO=null;
+        View::show("showProduct", $products);
+    }
 }
 ?>

@@ -62,11 +62,12 @@
                          <!-- Botón de debug para poder hacer logout (Destruir sesión) -->
                         <?php
                             echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Debug Logout</a>";
+                        
+                        echo "<form class=\"d-flex\" action=\"index.php?controller=ProductController&action=searchProduct\" method=\"post\">";
+                            echo "<input type=\"text\" class=\"form-control me-sm-2\" name=\"search\" placeholder=\"Buscar\">";
+                            echo "<button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Buscar</button>";
+                        echo "</form>";
                         ?>
-                        <form class="d-flex">
-                            <input class="form-control me-sm-2" type="search" placeholder="Buscar">
-                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-                        </form>
                         <?php
                         if (!isset($_SESSION['user'])) {
                             echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=showlogin\" type=\"submit\">Login</a>";

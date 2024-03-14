@@ -145,6 +145,24 @@ class ProductoDAO {
         }
     }
     
+    /**
+     * searchProduct
+     * Busca un producto en la base de datos
+     * @param  string Nombre del producto, VARCHAR(50)
+     * @return array con todas las filas devueltas por la base de datos
+     * @return -1 en caso de error
+     */
+    public function searchProduct($nombre){
+        try {
+            $stmt=$this->con_bd->prepare("SELECT * FROM productos WHERE nombre LIKE :nombre");
+            $stmt->bindValue(':nombre', "%".$nombre."%");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo $e . "<br>";
+            return -1;
+        }
+    }
 }
 
 ?>
