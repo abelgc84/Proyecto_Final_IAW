@@ -8,6 +8,35 @@ include_once ("views/View.php");
 class UserController {
 
     /**
+     * Método para dar de alta un usuario en la base de datos.
+     */
+    public function addUser(){
+        require_once ("models/UsuarioDAO.php");
+        // Comprobamos que se han recibido los datos del formulario
+        $errores=array();
+        $info=array();
+        if (empty($_POST['usuario'])) {
+            $errores['usuario']="El campo usuario no puede estar vacío";
+        }
+        if (empty($_POST['password'])) {
+            $errores['password']="El campo contraseña no puede estar vacío";
+        }
+
+        // Si hay errores, los mostramos
+        if (count($errores)>0) {
+            View::show("showLogin", $errores);
+        }
+        // Si no, añadimos el usuario a la base de datos
+        else {
+            $userDAO=new UsuarioDAO();
+            $userDAO->addUser($_POST['usuario'], $_POST['password']);
+            $userDAO=null;
+            $info['registrado']="Usuario " . $_POST['usuario'] . " añadido correctamente";
+            View::show("showLogin", $info);
+        }
+    }
+
+    /**
      * Método para mostrar la página de un producto
      */
     public function showOneProduct() {

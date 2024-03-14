@@ -17,12 +17,17 @@
                         echo "<div class=\"card\">";
                             echo "<div class=\"card-body\">";
                                 echo "<h5 class=\"card-title\">Login</h5>";
+                                if (isset($data['registrado'])) {
+                                    echo "<div class=\"alert alert-success\" role=\"alert\">";
+                                        echo $data['registrado'];
+                                    echo "</div>";
+                                }
                                 if (isset($data['noencontrado'])) {
                                         echo "<div class=\"alert alert-danger\" role=\"alert\">";
                                             echo $data['noencontrado'];
                                         echo "</div>";
                                 }   
-                                echo "<form action=\"index.php?controller=UserController&action=login\" method=\"post\">";
+                                echo "<form id=\"loginForm\" action=\"index.php?controller=UserController&action=login\" method=\"post\">";
                                     echo "<div class=\"form-group\">";
                                         echo "<label class=\"form-label mt-4\">Usuario</label>";
                                         echo "<div class=\"form-floating mb-3\">";
@@ -47,9 +52,15 @@
                                     echo "</div>";
                                     echo "<div class=\"row p-2\">";
                                         echo "<button class=\"btn btn-dark mt-2\" type=\"submit\">Entrar</button>";
-                                        echo "<a class=\"btn btn-dark mt-2\" href=\"#\">Unirse</a>"; // VACIO
+                                        echo "<button id=\"joinButton\" class=\"btn btn-dark mt-2\" type=\"button\">Unirse</button>"; 
                                     echo "</div>";
                                 echo "</form>";
+                                echo "<script>
+                                    document.getElementById('joinButton').addEventListener('click', function() {
+                                        document.getElementById('loginForm').action = 'index.php?controller=UserController&action=addUser';
+                                        document.getElementById('loginForm').submit();
+                                    });
+                                </script>";
                             echo "</div>";
                         echo "</div>";
                     echo "</div>";

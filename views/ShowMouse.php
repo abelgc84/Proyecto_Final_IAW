@@ -2,7 +2,7 @@
     /**
      * Controlador que añade un producto al carrito.
      */
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['referencia'])) {
         require_once 'controllers/ProductController.php';
         $controller = new ProductController();
         $controller->addToCart();

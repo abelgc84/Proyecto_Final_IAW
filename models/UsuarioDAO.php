@@ -60,12 +60,11 @@ class UsuarioDAO {
      * @return void
      * @return -1 en caso de error
      */
-    public function addUser($nombre,$password,$rol) {
+    public function addUser($nombre,$password,) {
         try {
-            $stmt=$this->con_bd->prepare("INSERT INTO Usuarios (Nombre,Password,Rol) VALUES (:nombre,:password,:rol)");
+            $stmt=$this->con_bd->prepare("INSERT INTO Usuarios (Nombre,Password,Rol) VALUES (:nombre,:password,'User')");
             $stmt->bindValue(':nombre',$nombre);
             $stmt->bindValue(':password',$password);
-            $stmt->bindValue(':rol',$rol);
             $stmt->execute();
         } catch (PDOException $e) {
             // echo $e . "<br>";

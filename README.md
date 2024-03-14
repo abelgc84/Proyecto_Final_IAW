@@ -8,3 +8,8 @@ Funcionalidades mínimas:
 4. Dar de alta nuevo producto (solo administrador).
 5. Añadir producto a carro de compra.
 6. Ver carro de la compra.
+
+Funcionalidades adicionales:
+1. Eliminar producto de carro de la compra.
+2. Búsqueda de productos por nombre.
+3. Registro de usuarios.
