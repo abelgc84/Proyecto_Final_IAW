@@ -40,7 +40,10 @@
                                 echo "<td>".$article['Detalles']."</td>";
                                 echo "<td>".$article['Imagen']."</td>";
                                 echo "<td><button type=\"button\" class=\"btn btn-dark btn-sm\">Editar</button></td>";
-                                echo "<td><button type=\"button\" class=\"btn btn-danger btn-sm\">Eliminar</button></td>";
+                                echo "<form action=\"index.php?controller=ProductController&action=deleteProduct\" method=\"post\">";
+                                    echo "<input type=\"hidden\" name=\"referencia\" value=\"".$article['Referencia']."\">";
+                                    echo "<td><button type=\"submit\" class=\"btn btn-danger btn-sm\">Eliminar</button></td>";
+                                echo "</form>";
                             echo "</tr>";
                         }
                         echo "</tbody>";

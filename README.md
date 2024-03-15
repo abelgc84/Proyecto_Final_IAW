@@ -13,3 +13,4 @@ Funcionalidades adicionales:
 1. Eliminar producto de carro de la compra.
 2. Búsqueda de productos por nombre.
 3. Registro de usuarios.
+4. Eliminar un producto de la base de datos.

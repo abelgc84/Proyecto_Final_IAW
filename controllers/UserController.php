@@ -12,26 +12,33 @@ class UserController {
      */
     public function addUser(){
         require_once ("models/UsuarioDAO.php");
-        // Comprobamos que se han recibido los datos del formulario
         $errores=array();
         $info=array();
+        // Comprobamos que se han recibido los datos del formulario.
         if (empty($_POST['usuario'])) {
             $errores['usuario']="El campo usuario no puede estar vacío";
         }
         if (empty($_POST['password'])) {
             $errores['password']="El campo contraseña no puede estar vacío";
         }
-
-        // Si hay errores, los mostramos
-        if (count($errores)>0) {
-            View::show("showLogin", $errores);
+        if (empty($_POST['confirmpassword'])) {
+            $errores['confirmpassword']="El campo confirmar contraseña no puede estar vacío";
         }
-        // Si no, añadimos el usuario a la base de datos
+        // Comprobamos que las contraseñas coinciden.
+        if ($_POST['password']!=$_POST['confirmpassword']) {
+            $errores['nocoincide']="Las contraseñas no coinciden";
+        }
+
+        // Si hay errores, los mostramos.
+        if (count($errores)>0) {
+            View::show("showSignIn", $errores);
+        }
+        // Si no, añadimos el usuario a la base de datos.
         else {
             $userDAO=new UsuarioDAO();
             $userDAO->addUser($_POST['usuario'], $_POST['password']);
             $userDAO=null;
-            $info['registrado']="Usuario " . $_POST['usuario'] . " añadido correctamente";
+            $info['registrado']="Usuario " . $_POST['usuario'] . " registrado correctamente. Ya puedes iniciar sesión.";
             View::show("showLogin", $info);
         }
     }
@@ -60,6 +67,13 @@ class UserController {
      */
     public function showLogin(){
         View::show("showLogin");
+    }
+
+    /**
+     * Método para mostrar la página de registro.
+     */
+    public function showSignIn(){
+        View::show("showSignIn");
     }
 
     /**

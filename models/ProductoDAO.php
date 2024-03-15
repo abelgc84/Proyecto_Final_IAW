@@ -83,7 +83,7 @@ class ProductoDAO {
      * @return void
      * @return -1 en caso de error
      */
-    public function delProduct($ref) {
+    public function deleteProduct($ref) {
         try {
             $stmt=$this->con_bd->prepare("DELETE FROM productos WHERE referencia=:ref");
             $stmt->bindValue(':ref', $ref);

@@ -65,9 +65,9 @@ class ProductController {
      * Método para añadir un producto a la BBDD.
      */
     public function addProduct() {
+        $errores = array();
 
         // Comprobamos que se han recibido los datos del formulario.
-        $errores = array();
         if (empty($_POST['nombre'])) {
             $errores['nombre'] = "El campo nombre no puede estar vacío";
         }
@@ -90,11 +90,11 @@ class ProductController {
             $errores['imagen'] = "El campo imagen no puede estar vacío";
         }
 
-        // Si hay errores, los mostramos
+        // Si hay errores, los mostramos.
         if (count($errores) > 0) {
             View::show("showProductForm", $errores);
         } else {
-            // Si no, añadimos el producto a la BBDD
+            // Si no, añadimos el producto a la BBDD.
             require_once ("models/ProductoDAO.php");
             $pDAO = new ProductoDAO();
             $pDAO->addProduct($_POST['nombre'], $_POST['categoria'], $_POST['precio'], $_POST['descripcion'], $_POST['detalles'], 'assets/'.$_POST['imagen']);
@@ -102,7 +102,17 @@ class ProductController {
             $exito = "Producto añadido con éxito";
             View::show("showProductForm", $exito);
         }
+    }
 
+    /**
+     * Método para eliminar un producto de la BBDD.
+     */
+    public function deleteProduct(){
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+        $pDAO->deleteProduct($_POST['referencia']);
+        $pDAO=null;
+        $this->getAdminProducts();
     }
 
     /**
