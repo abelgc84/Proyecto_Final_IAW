@@ -174,5 +174,28 @@ class ProductController {
         $pDAO=null;
         View::show("showProduct", $products);
     }
+
+    /**
+     * Método para mostrar el formulario de edición de un producto a partir de su referencia.
+     */
+    public function showProductFormEdit(){
+        require_once ("models/ProductoDAO.php");
+        $ref=$_POST['referencia'];
+        $pDAO=new ProductoDAO();
+        $product=$pDAO->getProductById($ref);
+        $pDAO=null;
+        View::show("showProductFormEdit", $product);
+    }
+
+    /**
+     * Método para editar un producto de la BBDD.
+     */
+    public function editProduct(){
+        require_once ("models/ProductoDAO.php");
+        $pDAO=new ProductoDAO();
+        $pDAO->editProduct($_POST['referencia'], $_POST['nombre'], $_POST['categoria'], $_POST['precio'], $_POST['descripcion'], $_POST['detalles'], $_POST['imagen']);
+        $pDAO=null;
+        $this->getAdminProducts();
+    }
 }
 ?>

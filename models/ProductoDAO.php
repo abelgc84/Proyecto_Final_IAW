@@ -159,7 +159,37 @@ class ProductoDAO {
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (PDOException $e) {
-            echo $e . "<br>";
+            // echo $e . "<br>";
+            return -1;
+        }
+    }
+
+    /**
+     * editProduct
+     * Edita un producto en la base de datos
+     * @param  int Referencia del producto, INT
+     * @param  string Nombre del producto, VARCHAR(50)
+     * @param  string Categoría del producto, ENUM ('teclado', 'raton', 'auriculares')
+     * @param  float Precio del producto, FLOAT
+     * @param  string Descripción del producto, TINYTEXT
+     * @param  string Detalles del producto, TEXT
+     * @param  string Imagen del producto, VARCHAR(100)
+     * @return void
+     * @return -1 en caso de error
+     */
+    public function editProduct($ref,$nombre,$categoria,$precio,$descripcion,$detalles,$imagen) {
+        try {
+            $stmt=$this->con_bd->prepare("UPDATE productos SET nombre=:nombre,categoría=:categoria,precio=:precio,descripción=:descripcion,detalles=:detalles,imagen=:imagen WHERE referencia=:ref");
+            $stmt->bindValue(':ref', $ref);
+            $stmt->bindValue(':nombre', $nombre);
+            $stmt->bindValue(':categoria', $categoria);
+            $stmt->bindValue(':precio', $precio);
+            $stmt->bindValue(':descripcion', $descripcion);
+            $stmt->bindValue(':detalles', $detalles);
+            $stmt->bindValue(':imagen', $imagen);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
             return -1;
         }
     }
