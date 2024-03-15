@@ -170,5 +170,4 @@ class UserController {
         View::show("showCart", $products);
     }
 }
-
 ?>

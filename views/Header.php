@@ -59,7 +59,7 @@
                             }
                             ?>
                         </ul>
-                         <!-- Botón de debug para poder hacer logout (Destruir sesión) -->
+                         <!-- Botón de debug para poder hacer logout -->
                         <?php
                             echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Debug Logout</a>";
                         

@@ -1,5 +1,4 @@
 <?php
-
     /**
      * Vista que muestra el formulario de registro.
      */
@@ -60,5 +59,4 @@
             echo "</div>";
         echo "</div>";
     echo "</main>";
-
 ?>

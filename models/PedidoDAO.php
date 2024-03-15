@@ -4,7 +4,6 @@ include_once ('bd/Database.php');
 
 # Clase DAO para la tabla Pedidos
 class PedidoDAO {
-
     private $con_bd;
 
     public function __construct(){

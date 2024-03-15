@@ -1,6 +1,6 @@
 <?php
     /**
-     * Controlador que añade un producto al carrito.
+     * Controlador que elimina un producto del carrito.
      */
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require_once 'controllers/ProductController.php';
@@ -40,7 +40,7 @@
                             echo "</div>";
                             echo "<div class='col'>" . ($article['product']['Precio'] * $article['cantidad']) . "</div>";
                             echo "<div class='col'>";
-                                echo "<form method='post' action=''>";
+                                echo "<form method='post' action=''>"; //index.php?controller=ProductController&action=removeFromCart
                                     echo "<input type='hidden' name='referencia' value='" . $article['product']['Referencia'] . "'>";
                                     echo "<button type='submit' name='removeFromCart' class='btn btn-danger'>Eliminar</button></a>";
                                 echo "</form>";

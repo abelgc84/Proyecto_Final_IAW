@@ -2,6 +2,9 @@
     /**
      * Controlador que añade un producto al carrito.
      */
+
+    // Al lanzarlo con action="..." me da error porque no se envía el post[referencia] y la función no se ejecuta.
+    // De esta manera sí funciona, no entiendo porqué.
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require_once 'controllers/ProductController.php';
         $controller = new ProductController();
@@ -30,17 +33,15 @@
                                 echo "<i class=\"fa fa-star text-secondary\"></i>";
                                 echo "<span class=\"list-inline-item text-dark\">Rating 4.8 | 36 Comentarios</span>";
                             echo "</p>";
-
                             echo "<h6>Descripción:</h6>";
                             echo "<p>" . $data['Descripción'] . "</p>";
-
                             echo "<h6>Detalles:</h6>";
                             echo "<ul class=\"list-unstyled pb-3\">";
                                 echo "<li>" . $data['Detalles'] . "</li>";
                             echo "</ul>";
                             echo "<div class=\"row pb-3\">";
-                                echo "<form method='post' action=''>";
-                                    echo "<input type='hidden' name='referencia' value='" . $data['Referencia'] . "'>";
+                                echo "<form method='post' action=''>"; //index.php?controller=ProductController&action=addToCart 
+                                    echo "<input type='hidden' name='referencia' value='".$data['Referencia']."'>";
                                     echo "<button type='submit' name='addToCart' class='btn btn-dark'>Añadir al carrito</button>";
                                 echo "</form>";
                             echo "</div>";

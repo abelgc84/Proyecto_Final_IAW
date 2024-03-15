@@ -3,12 +3,11 @@
         echo "<h1>Editar el producto</h1>";
         echo "<div class=\"card mb-3\">";
             echo "<div class=\"card-body\">";
-                echo "<form action=\"index.php?controller=ProductController&action=editProduct\" method=\"post\">"; //ACTION VACIO
+                echo "<form action=\"index.php?controller=ProductController&action=editProduct\" method=\"post\">";
                     echo "<input type=\"hidden\" name=\"referencia\" value=\"".$data['Referencia']."\">";
                     echo "<div class=\"row mb-3\">";
                         echo "<label for=\"nombre\" class=\"col-sm-2 col-form-label\">Nombre</label>";
                         echo "<div class=\"col-sm-10\">";
-                            // Mostramos el error si existe o el valor introducido por el usuario
                             echo "<input type=\"text\" class=\"form-control\" id=\"nombre\" name=\"nombre\" placeholder=\"Nombre del producto\" value=\"".$data['Nombre']."\">";
                         echo "</div>";
                     echo "</div>";

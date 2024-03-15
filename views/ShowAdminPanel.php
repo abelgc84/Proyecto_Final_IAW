@@ -1,5 +1,4 @@
 <?php
-
     /**
      * Vista que muestra el panel de administración.
      */
@@ -54,6 +53,12 @@
                 echo "</div>";
             echo "</div>";
         echo "</main>";
+    } else {
+        echo "<main>";
+            echo "<div class=\"container-fluid p-5\">";
+                echo "<h1>Acceso denegado</h1>";
+                echo "<p>No tienes permisos para acceder a esta página.</p>";
+            echo "</div>";
+        echo "</main>";
     }
-
 ?>

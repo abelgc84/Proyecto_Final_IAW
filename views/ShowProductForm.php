@@ -9,7 +9,7 @@
         }
         echo "<div class=\"card mb-3\">";
             echo "<div class=\"card-body\">";
-                echo "<form action=\"index.php?controller=ProductController&action=addProduct\" method=\"post\">"; //ACTION VACIO
+                echo "<form action=\"index.php?controller=ProductController&action=addProduct\" method=\"post\">";
                     echo "<div class=\"row mb-3\">";
                         echo "<label for=\"nombre\" class=\"col-sm-2 col-form-label\">Nombre</label>";
                         echo "<div class=\"col-sm-10\">";
