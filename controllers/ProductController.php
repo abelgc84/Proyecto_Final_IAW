@@ -197,5 +197,31 @@ class ProductController {
         $pDAO=null;
         $this->getAdminProducts();
     }
+
+    /**
+     * Método para actualizar la cantidad de un producto en el carrito.
+     */
+    public function updateCart(){
+        $uri = $_SERVER['REQUEST_URI'];
+        // Obtenemos el id del producto
+        $Id = $_POST['referencia'];
+        // Comprobamos si el producto está en el carrito
+        if (isset($_SESSION['cart'][$Id])) {
+            // Si está, actualizamos la cantidad
+            if (isset($_POST['increase'])) {
+                $_SESSION['cart'][$Id]++;
+            } else if (isset($_POST['decrease'])) {
+                $_SESSION['cart'][$Id]--;
+                if ($_SESSION['cart'][$Id] == 0) {
+                    unset($_SESSION['cart'][$Id]);
+                }
+            }
+        }
+        
+        // Refrescamos la página
+        echo '<script type="text/javascript">';
+            echo 'window.location.href="'.$uri.'";';
+        echo '</script>';
+    }
 }
 ?>

@@ -2,10 +2,16 @@
     /**
      * Controlador que elimina un producto del carrito.
      */
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['removeFromCart'])) {
         require_once 'controllers/ProductController.php';
         $controller = new ProductController();
         $controller->removeFromCart();
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['increase']) || isset($_POST['decrease'])){
+        require_once 'controllers/ProductController.php';
+        $controller = new ProductController();
+        $controller->updateCart();
     }
 
     /**
@@ -35,7 +41,14 @@
                             echo "<div class='col'>" . $article['product']['Precio'] . "</div>";
                             echo "<div class='col' style='max-width: 80px;'>";
                                 echo "<div class='mb-2'>";
-                                    echo "<input type='text' class='form-control text-center' value='" . $article['cantidad'] . "'>";
+                                    echo "<form method='post' action=''>"; //index.php?controller=ProductController&action=updateCart
+                                        echo "<input type='hidden' name='referencia' value='" . $article['product']['Referencia'] . "'>";
+                                        echo "<input type='text' class='form-control text-center' value='" . $article['cantidad'] . "'>";
+                                        echo "<div class='btn-group' role='group'>";
+                                            echo "<button type='submit' name='increase' class='btn btn-small'>+</button>";
+                                            echo "<button type='submit' name='decrease' class='btn btn-small'>-</button>";
+                                        echo "</div>";
+                                    echo "</form>";
                                 echo "</div>";
                             echo "</div>";
                             echo "<div class='col'>" . ($article['product']['Precio'] * $article['cantidad']) . "</div>";

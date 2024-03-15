@@ -3,6 +3,9 @@ Desarrollo de una aplicación web en PHP usando el patrón MVC. Se implementa un
 
 ## Índice
 
+- [Introducción](#introducción)
+- [Funcionalidades](#funcionalidades)
+
 ## Introducción
 
 MVC (Modelo-Vista-Controlador) es un patrón en el diseño de software comúnmente utilizado para implementar interfaces de usuario, datos y lógica de control. Enfatiza una separación entre la lógica y su visualización, proporcionando así una mejor división tanto del trabajo de implementación como del trabajo de mantenimiento.
@@ -31,3 +34,4 @@ Para el proyecto han sido implementadas diferentes funcionalidades. El acceso a 
 3. Registro de usuarios.
 4. Eliminar un producto de la base de datos.
 5. Editar un producto.
+6. Control de cantidades de cada producto del carrito.
