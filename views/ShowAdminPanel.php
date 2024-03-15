@@ -3,11 +3,6 @@
      * Vista que muestra el panel de administración.
      */
 
-    # Verificamos si la sesión está iniciada
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-
     # Verificamos que el usuario sea administrador
     if (isset($_SESSION['user']) && $_SESSION['user']->Rol == "Admin") {
         echo "<main>";

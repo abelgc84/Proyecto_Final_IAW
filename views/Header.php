@@ -46,6 +46,7 @@
                                     echo "<div class=\"dropdown-menu\">";
                                         echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showAdmin\">Panel de Productos</a>";
                                         echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showProductForm\">Formulario de Productos</a>";
+                                        echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showUsers\">Listado de Usuarios</a>";
                                     echo "</div>";
                                 echo "</li>";
                             } else if (isset($_SESSION['user']) && $_SESSION['user']->Rol == 'User') {

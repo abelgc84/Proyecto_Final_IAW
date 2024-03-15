@@ -99,7 +99,7 @@ class UsuarioDAO {
         try {
             $stmt=$this->con_bd->prepare("SELECT * FROM Usuarios");
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_OBJ);
+            return $stmt->fetchAll();
         } catch (PDOException $e) {
             // echo $e . "<br>";
             return -1;

@@ -8,6 +8,28 @@ include_once ("views/View.php");
 class UserController {
 
     /**
+     * Método que elimina un usuario de la base de datos.
+     */
+    public function deleteUser(){
+        require_once ("models/UsuarioDAO.php");
+        $userDAO=new UsuarioDAO();
+        $userDAO->deleteUser($_POST['id']);
+        $userDAO=null;
+        $this->showUsers();
+    }
+
+    /**
+     * Método que obtiene todos los usuarios de la BBDD y los muestra a través de la vista showUsers.
+     */
+    public function showUsers (){
+        require_once ("models/UsuarioDAO.php");
+        $uDAO=new UsuarioDAO();                // Instanciamos la clase DAO
+        $users=$uDAO->getAllUsers();           // Obtenemos todos los usuarios de la BBDD
+        $uDAO=null;                            // Liberamos la memoria
+        View::show("showUsers", $users);       // Mostramos los usuarios
+    }
+
+    /**
      * Método para dar de alta un usuario en la base de datos.
      */
     public function addUser(){
