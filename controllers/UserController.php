@@ -7,6 +7,39 @@ include_once ("views/View.php");
 
 class UserController {
 
+    /**
+     * Método para almacenar un pedido en la base de datos.
+     */
+    public function storeOrder(){
+        require_once ("models/PedidoDAO.php");
+        $pDAO=new PedidoDAO();                      // Instanciamos la clase DAO
+        $pDAO->storeOrder($_SESSION['user']->ID);   // Almacenamos el pedido en la base de datos
+        $pDAO=null;                                 // Liberamos la memoria
+        unset($_SESSION['cart']);                   // Vaciar el carrito
+        $this->showOrder();                         // Mostramos la lista de pedidos
+    }
+
+    /**
+     * Método que muestra la lista de pedidos realizados por un usuario.
+     */
+    public function showOrder(){
+        require_once ("models/PedidoDAO.php");
+        $pDAO=new PedidoDAO();
+        $orders=$pDAO->getOrderByUser($_SESSION['user']->ID);
+        $pDAO=null;
+        View::show("showOrder", $orders);
+    }
+
+    /**
+     * Método que muestra los productos de un pedido.
+     */
+    public function showOrderDetails(){
+        require_once ("models/PedidoDAO.php");
+        $pDAO=new PedidoDAO();
+        $orderDetails=$pDAO->getOrderDetails($_POST['id']);
+        $pDAO=null;
+        View::show("showOrderDetails", $orderDetails);  
+    }
 
     /**
      * Método que cambia el rol de un usuario.

@@ -88,7 +88,7 @@ class ProductoDAO {
             $stmt->bindValue(':ref', $ref);
             $stmt->execute();
         } catch (PDOException $e) {
-            echo $e . "<br>";
+            // echo $e . "<br>";
             return -1;
         }
     }

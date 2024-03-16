@@ -54,15 +54,15 @@
                                     echo "<a class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Su Perfil</a>";
                                     echo "<div class=\"dropdown-menu\">";
                                         echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showWorkInProgress\">Datos de Usuario</a>"; // VACIO
-                                        echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showWorkInProgress\">Pedidos Realizados</a>"; // VACIO
+                                        echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showOrder\">Pedidos Realizados</a>"; // VACIO
                                     echo "</div>";
                                 echo "</li>";
                             }
                             ?>
-                        </ul>
-                         <!-- Botón de debug para poder hacer logout -->
+                        </ul>                         
                         <?php
-                            echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Debug Logout</a>";
+                        // Botón de debug para poder hacer logout
+                        // echo "<a class=\"btn btn-secondary my-2 my-sm-0 ms-3\" href=\"index.php?controller=UserController&action=logout\" type=\"submit\">Debug Logout</a>";
                         
                         echo "<form class=\"d-flex\" action=\"index.php?controller=ProductController&action=searchProduct\" method=\"post\">";
                             echo "<input type=\"text\" class=\"form-control me-sm-2\" name=\"search\" placeholder=\"Buscar\">";

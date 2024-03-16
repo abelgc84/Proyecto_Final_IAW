@@ -5,6 +5,8 @@ Desarrollo de una aplicación web en PHP usando el patrón MVC. Se implementa un
 
 - [Introducción](#introducción)
 - [Funcionalidades](#funcionalidades)
+  - [Funcionalidades mínimas](#funcionalidades-mínimas)
+  - [Funcionalidades adicionales](#funcionalidades-adicionales)
 
 ## Introducción
 
@@ -35,3 +37,5 @@ Para el proyecto han sido implementadas diferentes funcionalidades. El acceso a 
 4. Eliminar un producto de la base de datos.
 5. Editar un producto.
 6. Control de cantidades de cada producto del carrito.
+7. Administración de usuarios borrar/modificar rol.
+8. Gestión de pedidos y detalles de cada pedido.

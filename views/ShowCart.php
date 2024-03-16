@@ -1,5 +1,9 @@
 <?php
     /**
+     * Vista que muestra los productos del carrito.
+     */
+
+    /**
      * Controlador que elimina un producto del carrito.
      */
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['removeFromCart'])) {
@@ -13,10 +17,6 @@
         $controller = new ProductController();
         $controller->updateCart();
     }
-
-    /**
-     * Vista que muestra los productos del carrito.
-     */
 
     echo "<div class='container-fluid p-5'>";
         echo "<div class='card'>";
@@ -74,7 +74,7 @@
                             # echo "<input type='text' class='form-control text-center' value='1'>";
                         echo "</div>";
                         echo "<div class='col'>" . $total . "</div>";
-                        echo "<div class='col'><a class='btn btn-dark my-2 my-sm-0 ms-3' type='submit'>Comprar</a></div>";
+                        echo "<div class='col'><a class='btn btn-dark my-2 my-sm-0 ms-3' type='submit' href=\"index.php?controller=UserController&action=storeOrder\">Comprar</a></div>";
                     echo "</div>";
                 echo "</div>";
             echo "</div>";

@@ -4,7 +4,7 @@
      */
 
     // Al lanzarlo con action="..." me da error porque no se envía el post[referencia] y la función no se ejecuta.
-    // De esta manera sí funciona, no entiendo porqué.
+    // De esta manera sí funciona, tiene algo que ver con el script de javascript que refresca la página.
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require_once 'controllers/ProductController.php';
         $controller = new ProductController();

@@ -1,4 +1,9 @@
 <?php
+    /*
+    * Vista de los productos de la categoría ratón
+    * Recibe los datos a mostrar a través del parámetro $data (utilizado en la función View::show).
+    */
+
     /**
      * Controlador que añade un producto al carrito.
      */
@@ -15,10 +20,6 @@
         $controller = new UserController();
         $controller->showOneProduct($_GET['ref']);
     }
-    /*
-    * Vista de los productos de la categoría ratón
-    * Recibe los datos a mostrar a través del parámetro $data (utilizado en la función View::show).
-    */
 
     // Contar el número de productos
     $count = 0;
