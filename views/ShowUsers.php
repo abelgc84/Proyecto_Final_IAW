@@ -27,14 +27,22 @@
                                 echo "<td>".$user['Nombre']."</td>";
                                 echo "<td><input type=\"password\" value=\"".$user['Password']."\" readonly style=\"border: none; background: transparent;\"></td>";
                                 echo "<td>".$user['Rol']."</td>";
-                                echo "<form action = \"index.php?controller=UserController&action=EditUser\" method=\"post\">";
-                                    echo "<input type=\"hidden\" name=\"id\" value=\"".$user['ID']."\">";
-                                    echo "<td><button type=\"submit\" class=\"btn btn-dark btn-sm\">Cambiar Rol</button></td>";
-                                echo "</form>";
-                                echo "<form action=\"index.php?controller=UserController&action=deleteUser\" method=\"post\">";
-                                    echo "<input type=\"hidden\" name=\"id\" value=\"".$user['ID']."\">";
-                                    echo "<td><button type=\"submit\" class=\"btn btn-danger btn-sm\">Eliminar</button></td>";
-                                echo "</form>";
+                                if ($user['Rol'] != "Admin") {
+                                    echo "<form action = \"index.php?controller=UserController&action=EditUser\" method=\"post\">";
+                                        echo "<input type=\"hidden\" name=\"id\" value=\"".$user['ID']."\">";
+                                        echo "<td><button type=\"submit\" class=\"btn btn-dark btn-sm\">Promover</button></td>";
+                                    echo "</form>";
+                                } else {
+                                    echo "<td></td>";
+                                }
+                                if ($user['Rol'] != "Admin") {
+                                    echo "<form action=\"index.php?controller=UserController&action=deleteUser\" method=\"post\">";
+                                        echo "<input type=\"hidden\" name=\"id\" value=\"".$user['ID']."\">";
+                                        echo "<td><button type=\"submit\" class=\"btn btn-danger btn-sm\">Eliminar</button></td>";
+                                    echo "</form>";
+                                } else {
+                                    echo "<td></td>";
+                                }
                             echo "</tr>";
                         }
                         echo "</tbody>";

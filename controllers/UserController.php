@@ -7,6 +7,18 @@ include_once ("views/View.php");
 
 class UserController {
 
+
+    /**
+     * Método que cambia el rol de un usuario.
+     */
+    public function EditUser(){
+        require_once ("models/UsuarioDAO.php");
+        $userDAO=new UsuarioDAO();
+        $userDAO->changeRol($_POST['id']);
+        $userDAO=null;
+        $this->showUsers();
+    }
+    
     /**
      * Método que elimina un usuario de la base de datos.
      */

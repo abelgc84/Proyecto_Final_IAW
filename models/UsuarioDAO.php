@@ -106,6 +106,23 @@ class UsuarioDAO {
         }
     }
 
+    /**
+     * changeRol
+     * Cambia el rol de un usuario
+     * @param  int Identificador del usuario
+     * @return void
+     * @return -1 en caso de error
+     */
+    public function changeRol($iduser){
+        try {
+            $stmt=$this->con_bd->prepare("UPDATE Usuarios SET Rol='Admin' WHERE ID=:iduser");
+            $stmt->bindValue(':iduser',$iduser);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            // echo $e . "<br>";
+            return -1;
+        }
+    }
 }
 
 ?>
