@@ -51,7 +51,7 @@
                                 echo "</li>";
                             } else if (isset($_SESSION['user']) && $_SESSION['user']->Rol == 'User') {
                                 echo "<li class=\"nav-item dropdown\">";
-                                    echo "<a class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Su Perfil</a>";
+                                    echo "<a class=\"nav-link dropdown-toggle\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Su Perfil: " . $_SESSION['user']->Nombre . "</a>";
                                     echo "<div class=\"dropdown-menu\">";
                                         echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showWorkInProgress\">Datos de Usuario</a>"; // VACIO
                                         echo "<a class=\"dropdown-item\" href=\"index.php?controller=UserController&action=showOrder\">Pedidos Realizados</a>"; // VACIO

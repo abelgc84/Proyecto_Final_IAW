@@ -170,7 +170,8 @@ class ProductController {
     public function searchProduct(){
         require_once ("models/ProductoDAO.php");
         $pDAO=new ProductoDAO();
-        $products=$pDAO->searchProduct($_POST['search']);
+        $search = isset($_POST['search']) ? $_POST['search'] : ''; // Si no existe se sustituye por una cadena vacia para mostrar todos los productos. 
+        $products=$pDAO->searchProduct($search);
         $pDAO=null;
         View::show("showProduct", $products);
     }
